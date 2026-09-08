@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('pw ok'\\)}catch\\(e\\){console.log\\('no pw'\\)}\")"
+    ]
+  }
+}
