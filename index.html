@@ -666,13 +666,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <svg viewBox="0 0 32 32"><use href="#icon-chevron"/></svg>
         </button>
         <div class="dropdown-panel" role="menu">
-          <a href="rooms.html" role="menuitem">All Rooms &amp; Rates</a>
+          <a href="rooms.html" role="menuitem">All Rooms<!--&amp; Rates--></a>
           <div class="divider"></div>
-          <a href="room-single.html" role="menuitem">Single Room &mdash; &pound;89</a>
-          <a href="room-double.html" role="menuitem">Double Room &mdash; &pound;129</a>
-          <a href="room-triple.html" role="menuitem">Triple Room &mdash; &pound;149</a>
-          <a href="room-quad.html" role="menuitem">Quad Room &mdash; &pound;179</a>
-          <a href="room-family.html" role="menuitem">Family Room &mdash; &pound;189</a>
+          <a href="room-single.html" role="menuitem">Single Room<!--&mdash; &pound;89 --></a>
+          <a href="room-double.html" role="menuitem">Double Room<!--&mdash; &pound;129--></a>
+          <a href="room-triple.html" role="menuitem">Triple Room<!--&mdash; &pound;149--></a>
+          <a href="room-quad.html" role="menuitem">Quad Room<!--&mdash; &pound;179--></a>
+          <a href="room-family.html" role="menuitem">Family Room<!--&mdash; &pound;180--></a>
         </div>
       </div>
 
@@ -698,7 +698,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 </header>
 
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="rooms.html">Rooms &amp; Rates</a>
+  <a href="rooms.html">Rooms</a>
   <div class="mobile-sub">
     <a href="room-single.html">Single</a>
     <a href="room-double.html">Double</a>
@@ -722,14 +722,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media" id="heroMedia">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- HERO IMAGE (recommended size 1920x1080) — the Victorian townhouse facade works well here -->
-    <img class="hero-media__el" id="heroImg"
-         src="./images/hero_copy.png"
+    <img decoding="async" class="hero-media__el" id="heroImg"
+         src="images/opt/hero-copy.jpg"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
-    <img class="hero-media__el" id="heroImg"
-         src="./images/Hero image.jpg"
+    <img decoding="async" class="hero-media__el" id="heroImg"
+         src="images/opt/hero-image.jpg"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
-    <img class="hero-media__el" id="heroImg"
-         src="./images/hero.png"
+    <img decoding="async" class="hero-media__el" id="heroImg"
+         src="images/opt/hero.jpg"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
     <!--
       TO USE A VIDEO INSTEAD OF A STILL IMAGE:
@@ -761,7 +761,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         Check Availability
         <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg>
       </a>
-      <a href="rooms.html" class="btn btn--ghost-light">View Rooms &amp; Rates</a>
+      <a href="rooms.html" class="btn btn--ghost-light">View Rooms</a>
     </div>
   </div>
 
@@ -792,7 +792,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <div class="about-media reveal">
         <!-- ABOUT IMAGE (recommended size 1000x1250, portrait) -->
-        <img src="./images/About us -section2.png"
+        <img decoding="async" loading="lazy" src="images/opt/about-us-section2.jpg"
              alt="A staircase inside the Victorian townhouse at Hotel Bluebells">
         <svg class="sprig" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
       </div>
@@ -840,7 +840,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:0">
         <a href="room-single.html" class="room-card__media">
-          <img src="./images/rooms/single _ room - hero.png" alt="Single Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-single-room-hero.jpg" alt="Single Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
@@ -849,15 +849,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           </div>
           <p>A compact, well-appointed room built for solo stays, with everything close at hand.</p>
           <div class="room-card__foot">
-            <span class="room-card__beds">1 single (3ft) bed</span>
-            <span class="room-card__price">&pound;89 <span>/ night</span></span>
+            <span class="room-card__beds">1 single bed</span>
+            <span class="room-card__price">from &pound;99 <span>/ night</span></span>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:1">
         <a href="room-double.html" class="room-card__media">
-          <img src="./images/rooms/Double Room(3).png" alt="Double Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-double-room-3.jpg" alt="Double Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
@@ -867,14 +867,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <p>A warm, light-filled room with a full-size double bed — ideal for couples exploring Notting Hill.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 double bed</span>
-            <span class="room-card__price">&pound;129 <span>/ night</span></span>
+            <span class="room-card__price">from &pound;139 <span>/ night</span></span>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:2">
         <a href="room-triple.html" class="room-card__media">
-          <img src="./images/rooms/triple.png" alt="Triple Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-triple.jpg" alt="Triple Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
@@ -884,14 +884,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <p>Extra space for three, with a flexible bed configuration to suit your group.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 double &amp; 1 single bed</span>
-            <span class="room-card__price">&pound;149 <span>/ night</span></span>
+            <span class="room-card__price">from &pound;159 <span>/ night</span></span>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:3">
         <a href="room-quad.html" class="room-card__media">
-          <img src="./images/rooms/quad room.png" alt="Quad Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-quad-room.jpg" alt="Quad Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
@@ -901,14 +901,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <p>Our largest standard room, sleeping up to four — practical, comfortable, ready for a group.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">2 double beds</span>
-            <span class="room-card__price">&pound;179 <span>/ night</span></span>
+            <span class="room-card__price">from &pound;199 <span>/ night</span></span>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:4">
         <a href="room-family.html" class="room-card__media">
-          <img src="./images/rooms/family(1).png" alt="Family Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-family-1.jpg" alt="Family Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
@@ -918,7 +918,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <p>A generously sized room with space to spread out after a day at Hyde Park or Kensington Gardens.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 double &amp; 2 single beds</span>
-            <span class="room-card__price">&pound;189 <span>/ night</span></span>
+            <span class="room-card__price">from &pound;239 <span>/ night</span></span>
           </div>
         </div>
       </article>
@@ -926,7 +926,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     </div>
 
     <div style="text-align:center; margin-top:2.6rem;">
-      <a href="rooms.html" class="btn btn--outline">View All Rooms &amp; Rates <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg></a>
+      <a href="rooms.html" class="btn btn--outline">View All Rooms <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg></a>
     </div>
 
     <p style="margin-top:2rem; font-size:var(--fs-small); color:var(--color-ink-soft); text-align:center;">
@@ -996,19 +996,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
     <div class="gallery-grid reveal" id="galleryGrid" style="margin-bottom:2.4rem;">
       <div class="gallery-item tall">
-        <img src="./images/facade.jpg" alt="Hotel Bluebells townhouse facade">
+        <img decoding="async" loading="lazy" src="images/opt/facade.jpg" alt="Hotel Bluebells townhouse facade">
         <span class="gallery-item__caption">The Facade</span>
       </div>
       <div class="gallery-item">
-        <img src="./images/double room(1).png" alt="Double room interior">
+        <img decoding="async" loading="lazy" src="images/opt/double-room-1.jpg" alt="Double room interior">
         <span class="gallery-item__caption">Double Room</span>
       </div>
       <div class="gallery-item">
-        <img src="https://placehold.co/700x500/7D8A6B/F6F2E9?text=Reception" alt="Hotel Bluebells reception area">
+        <img decoding="async" loading="lazy" src="https://placehold.co/700x500/7D8A6B/F6F2E9?text=Reception" alt="Hotel Bluebells reception area">
         <span class="gallery-item__caption">Reception</span>
       </div>
       <div class="gallery-item tall">
-        <img src="./images/bathroom(3).png" alt="A guest bathroom at Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="A guest bathroom at Hotel Bluebells">
         <span class="gallery-item__caption">Guest Bathroom</span>
       </div>
     </div>
@@ -1035,32 +1035,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="testimonial-stars" aria-hidden="true">
           <svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg>
         </div>
-        <blockquote>Loved waking up two minutes from Portobello Road Market — coffee, a browse through the antiques stalls, and back in plenty of time for breakfast.</blockquote>
-        <p class="testimonial-meta"><strong>Mrs A.</strong> — Guest review</p>
+        <blockquote>The bluebells hotel was a great little find. Travelling with 3 children is very difficult to accommodate in London and usually very expensive. Although this hotel is a 3 star, it was excellent value for money.</blockquote>
+        <p class="testimonial-meta"><strong>A. Cooper</strong> — Guest review</p>
       </div>
 
       <div class="testimonial-slide">
         <div class="testimonial-stars" aria-hidden="true">
           <svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg>
         </div>
-        <blockquote>A proper Notting Hill stay — high ceilings, big sash windows, and that lovely row of pastel townhouses right outside the door.</blockquote>
-        <p class="testimonial-meta"><strong>Mr H.</strong> — Guest review</p>
+        <blockquote>My friends and I stayed here on the 23rd November up on the top floor. to celebrate my friend's birthday. The staff here are so excellent and welcoming, the hotel is safe and comes with a great breakfast service. I was up on the Saturday night talking to a friend on the phone and he made me a cup of tea at 3am to make me feel welcome at that time of morning! it was a lovely vibe and I would definitely stay there again :)</blockquote>
+        <p class="testimonial-meta"><strong>S. Fry</strong> — Guest review</p>
       </div>
 
       <div class="testimonial-slide">
         <div class="testimonial-stars" aria-hidden="true">
           <svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg>
         </div>
-        <blockquote>Walked into Hyde Park most mornings before breakfast and never once needed a cab into the centre of town. Couldn't ask for a better base.</blockquote>
-        <p class="testimonial-meta"><strong>Mrs G.</strong> — Guest review</p>
+        <blockquote>Nice hotel with good breakfast</blockquote>
+        <p class="testimonial-meta"><strong>A. Swart</strong> — Guest review</p>
       </div>
 
       <div class="testimonial-slide">
         <div class="testimonial-stars" aria-hidden="true">
           <svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg>
         </div>
-        <blockquote>Small hotel, big welcome. The kind of place that remembers how you take your tea by the second morning.</blockquote>
+        <blockquote>An absolute gem of a hotel! From the moment we arrived, the staff went above and beyond to make the stay comfortable and welcoming. The rooms are spotless, modern, and exceptionally comfortable, featuring top-notch amenities. The location is ideal, and the overall atmosphere is relaxing and luxurious.</blockquote>
         <p class="testimonial-meta"><strong>Mr D.</strong> — Guest review</p>
+      </div>
+
+      <div class="testimonial-slide">
+        <div class="testimonial-stars" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg><svg viewBox="0 0 32 32"><use href="#icon-star"/></svg>
+        </div>
+        <blockquote>Excellent location (a beautiful neighborhood with shops, supermarkets, and restaurants nearby, just a 5-minute walk from Notting Hill Underground Station), outstanding staff, excellent facilities (comfortable mattresses, a great shower, etc.), a fantastic breakfast, and everything was spotlessly clean.</blockquote>
+        <p class="testimonial-meta"><strong>Nani E.</strong> — Guest review</p>
       </div>
 
       <div class="testimonial-nav">
@@ -1084,7 +1092,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="cta-band reveal">
       <div class="cta-band-media">
         <!-- OFFERS BAND BACKGROUND IMAGE (recommended size 1600x700) -->
-        <img src="https://placehold.co/1600x700/545E44/F6F2E9?text=OFFERS+BAND+IMAGE+%E2%80%94+1600x700" alt="">
+        <img decoding="async" loading="lazy" src="https://placehold.co/1600x700/545E44/F6F2E9?text=OFFERS+BAND+IMAGE+%E2%80%94+1600x700" alt="">
       </div>
       <div class="cta-band-inner">
         <div>
@@ -1172,7 +1180,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <h5>Explore</h5>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="rooms.html">Rooms &amp; Rates</a></li>
+          <li><a href="rooms.html">Rooms</a></li>
           <li><a href="neighbourhood.html">Neighbourhood</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
