@@ -376,6 +376,20 @@ h1, h2, h3, h4{
 .room-detail-grid{ display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 @media (min-width: 900px){ .room-detail-grid{ grid-template-columns: 1.05fr 0.95fr; } }
 .room-detail-media img{ border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
+/* Room photo mosaic: the main photo is unchanged; extra photos fill the space under it and never make the section taller than its text column.
+   The tile layout is planned by the script at the foot of the page (section 10), so photos can be added or removed freely. */
+.room-gallery{ display: flex; flex-direction: column; gap: 0.9rem; }
+.room-gallery__more{ display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(6, minmax(0, 1fr)); gap: 0.9rem; aspect-ratio: 1 / 1; opacity: 0; animation: roomMosaicShow 0.01s 2.5s forwards; transition: opacity 0.5s var(--ease); }
+.room-gallery__more.is-ready{ opacity: 1; animation: none; }
+@keyframes roomMosaicShow{ to{ opacity: 1; } }
+.room-gallery__tile{ position: relative; overflow: hidden; margin: 0; grid-column: span 6; grid-row: span 3; border-radius: var(--radius-md); background: var(--color-ivory-deep); }
+.room-gallery__tile img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; box-shadow: none; transition: transform 0.6s var(--ease); }
+.room-gallery__tile:hover img{ transform: scale(1.06); }
+@media (min-width: 600px){ .room-gallery__more{ aspect-ratio: 3 / 2; } }
+@media (min-width: 900px){
+  .room-gallery{ align-self: stretch; }
+  .room-gallery__more{ aspect-ratio: auto; flex: 1 1 0; min-height: 220px; }
+}
 
 .room-spec-row{ display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; margin-block: 1.4rem 1.6rem; padding-block: 1.2rem; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
 .room-spec{ display: flex; flex-direction: column; }
@@ -788,9 +802,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="container">
     <div class="room-detail-grid">
 
-      <div class="room-detail-media reveal">
+      <div class="room-detail-media room-gallery reveal">
         <!-- FAMILY JUNIOR SUITE DETAIL IMAGE (recommended size 900x1100, portrait) -->
         <img decoding="async" loading="lazy" src="images/opt/quad-room-1.jpg" alt="Interior of a Family Junior Suite at Hotel Bluebells">
+        <!-- EXTRA PHOTOS: one <figure> per photo. Add or delete lines freely (about 2 to 5 looks best) and the script
+             at the foot of the page re-plans the grid by itself, with a fresh random arrangement on every visit.
+             To keep one arrangement you like, add data-seed="NUMBER" below (the number in use is shown in the
+             data-seed-used attribute in the browser inspector). -->
+        <div class="room-gallery__more">
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="Ensuite basin with round mirror"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/quad-room-2.jpg" alt="TV, desk and tea tray in a Family Junior Suite"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/garden-terrace.jpg" alt="The hotel's private back garden"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/shower.jpg" alt="Ensuite shower room"></figure>
+        </div>
       </div>
 
       <div class="reveal">
@@ -1188,6 +1212,158 @@ document.addEventListener('DOMContentLoaded', function () {
       contactSuccess.classList.add('is-visible');
       contactForm.reset();
     });
+  }
+
+  /* ------------------------------------------------------------------------
+     10. ROOM PHOTO MOSAIC — plans a random, balanced grid for the extra room
+         photos (.room-gallery__tile) so they exactly fill the space under the
+         main photo. Add or delete a <figure> in the page and it re-plans:
+         no layout classes to edit. Tall photos are matched to tall tiles and
+         wide photos to wide tiles. A new arrangement is chosen on every visit;
+         put data-seed="123" on .room-gallery__more to keep one (the seed in
+         use is written to its data-seed-used attribute).
+     ---------------------------------------------------------------------- */
+  var mosaic = document.querySelector('.room-gallery__more');
+  var mosaicTiles = mosaic ? Array.prototype.slice.call(mosaic.querySelectorAll('.room-gallery__tile')) : [];
+  if (mosaic && !mosaicTiles.length) mosaic.style.display = 'none';
+  if (mosaic && mosaicTiles.length) {
+    var MO_COLS = 12, MO_ROWS = 6;   // planning lattice; the CSS grid uses the same numbers
+    var moSeed = parseInt(mosaic.getAttribute('data-seed'), 10);
+    if (isNaN(moSeed)) moSeed = Math.floor(Math.random() * 1000000000);
+    mosaic.setAttribute('data-seed-used', moSeed);
+
+    // small seeded random number generator (same seed = same plan)
+    var moRandom = function (seed) {
+      var a = seed >>> 0;
+      return function () {
+        a = (a + 0x6D2B79F5) | 0;
+        var t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    };
+
+    // a tile is acceptable if it is not too small or too thin/wide
+    var moLeafOk = function (r, lim) {
+      var w = r.w * lim.colPx, h = r.h * lim.rowPx, ratio = w / h;
+      return w >= lim.minW && h >= lim.minH && ratio >= lim.minRatio && ratio <= lim.maxRatio;
+    };
+
+    // cut a rectangle at random into n tiles (left/right or top/bottom, recursively)
+    var moSplit = function (rect, n, rnd, lim) {
+      if (n === 1) return moLeafOk(rect, lim) ? [rect] : null;
+      var vertical = rect.w * lim.colPx >= rect.h * lim.rowPx ? rnd() < 0.8 : rnd() < 0.2;
+      var total = vertical ? rect.w : rect.h;
+      if (total < 2) return null;
+      var k = 1 + Math.floor(rnd() * (n - 1));                              // tiles in the first part
+      var cut = Math.round(total * (k / n) * (0.75 + rnd() * 0.5));         // size roughly follows tile count
+      cut = Math.max(1, Math.min(total - 1, cut));
+      var a = vertical ? { c: rect.c, r: rect.r, w: cut, h: rect.h } : { c: rect.c, r: rect.r, w: rect.w, h: cut };
+      var b = vertical ? { c: rect.c + cut, r: rect.r, w: rect.w - cut, h: rect.h } : { c: rect.c, r: rect.r + cut, w: rect.w, h: rect.h - cut };
+      var first = moSplit(a, k, rnd, lim);
+      if (!first) return null;
+      var second = moSplit(b, n - k, rnd, lim);
+      return second ? first.concat(second) : null;
+    };
+
+    // plain rows of equal tiles: used only if no random plan fits (e.g. very many photos)
+    var moUniform = function (n) {
+      var rows = n > 2 ? 2 : 1, out = [], done = 0;
+      for (var row = 0; row < rows; row++) {
+        var inRow = row === 0 ? Math.ceil(n / rows) : n - done;
+        for (var i = 0; i < inRow; i++) {
+          var c0 = Math.round(i * MO_COLS / inRow), c1 = Math.round((i + 1) * MO_COLS / inRow);
+          out.push({ c: c0, r: row * (MO_ROWS / rows), w: c1 - c0, h: MO_ROWS / rows });
+        }
+        done += inRow;
+      }
+      return out;
+    };
+
+    var moPlan = function (n, W, H) {
+      var rnd = moRandom(moSeed);
+      var size = Math.max(130, Math.min(200, 0.5 * Math.sqrt(W * H / n)));   // fewer photos = bigger minimum tile
+      var passes = [1, 0.8, 0.6];                                              // loosen the rules only if nothing fits
+      for (var p = 0; p < passes.length; p++) {
+        var relax = passes[p], found = [], seen = {};
+        var lim = { colPx: W / MO_COLS, rowPx: H / MO_ROWS, minW: size * relax, minH: size * relax, minRatio: 0.6 * relax, maxRatio: 2 / relax };
+        for (var attempt = 0; attempt < 400 && found.length < 14; attempt++) {
+          var leaves = moSplit({ c: 0, r: 0, w: MO_COLS, h: MO_ROWS }, n, rnd, lim);
+          if (!leaves) continue;
+          var areas = leaves.map(function (l) { return l.w * l.h; });
+          if (n > 1 && Math.max.apply(null, areas) > (3.2 / relax) * Math.min.apply(null, areas)) continue;   // no huge-vs-tiny mix
+          var key = leaves.map(function (l) { return l.c + ',' + l.r + ',' + l.w + ',' + l.h; }).sort().join('|');
+          if (seen[key]) continue;                                             // only distinct arrangements
+          seen[key] = true;
+          found.push(leaves);
+        }
+        if (found.length) return found[Math.floor(rnd() * found.length)];      // a random one of the good arrangements
+      }
+      return moUniform(n);
+    };
+
+    // give each photo the tile whose shape suits it best
+    var moAssign = function (leaves, aspects, W, H) {
+      var n = leaves.length, order = [], i;
+      for (i = 0; i < n; i++) order.push(i);
+      if (n > 8) return order;
+      var shape = leaves.map(function (l) { return (l.w * W / MO_COLS) / (l.h * H / MO_ROWS); });
+      var best = order, bestCost = Infinity, used = [], cur = [];
+      (function pick(i, cost) {
+        if (cost >= bestCost) return;
+        if (i === n) { bestCost = cost; best = cur.slice(); return; }
+        for (var j = 0; j < n; j++) {
+          if (used[j]) continue;
+          used[j] = true; cur[i] = j;
+          pick(i + 1, cost + Math.abs(Math.log(shape[i] / aspects[j])));
+          used[j] = false;
+        }
+      })(0, 0);
+      return best;
+    };
+
+    var moLastW = 0, moLastH = 0;
+    var moArrange = function (force) {
+      var box = mosaic.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      if (!force && Math.abs(box.width - moLastW) < 2 && Math.abs(box.height - moLastH) < 2) return;
+      moLastW = box.width; moLastH = box.height;
+      var aspects = mosaicTiles.map(function (t) {
+        var im = t.querySelector('img');
+        return im && im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5;
+      });
+      var leaves = moPlan(mosaicTiles.length, box.width, box.height);
+      var order = moAssign(leaves, aspects, box.width, box.height);
+      leaves.forEach(function (l, i) {
+        mosaicTiles[order[i]].style.gridArea = (l.r + 1) + ' / ' + (l.c + 1) + ' / ' + (l.r + 1 + l.h) + ' / ' + (l.c + 1 + l.w);
+      });
+    };
+
+    // wait for the photos (their shapes are needed), then plan and fade the mosaic in
+    var moShown = false, moPending = 0;
+    var moShow = function () {
+      moArrange(true);
+      if (!moShown) { moShown = true; mosaic.classList.add('is-ready'); }
+    };
+    mosaicTiles.forEach(function (t) {
+      var im = t.querySelector('img');
+      if (!im) return;
+      im.loading = 'eager';
+      if (!im.complete) {
+        moPending++;
+        var loaded = function () { moPending--; if (moPending <= 0 || moShown) moShow(); };
+        im.addEventListener('load', loaded);
+        im.addEventListener('error', loaded);
+      }
+    });
+    if (!moPending) moShow();
+    setTimeout(moShow, 1800);   // never wait longer than this for slow photos
+
+    // re-plan when the space changes (window resized, fonts finished loading, ...)
+    var moTimer;
+    var moOnResize = function () { clearTimeout(moTimer); moTimer = setTimeout(function () { if (moShown) moArrange(false); }, 80); };
+    if ('ResizeObserver' in window) new ResizeObserver(moOnResize).observe(mosaic);
+    else window.addEventListener('resize', moOnResize);
   }
 
 });
