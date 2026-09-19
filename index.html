@@ -209,7 +209,7 @@ h1, h2, h3, h4{
 .nav-links a, .nav-link-btn{
   font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em;
   color: var(--color-ivory); position: relative; padding-bottom: 4px;
-  display: inline-flex; align-items: center; gap: 0.3rem;
+  display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap;
   transition: color 0.4s var(--ease);
 }
 .nav-link-btn svg{ width: 10px; height: 10px; transition: transform 0.3s var(--ease); }
@@ -232,6 +232,27 @@ h1, h2, h3, h4{
 .dropdown-panel a:hover{ background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); }
 .dropdown-panel .divider{ height: 1px; background: var(--color-line); margin-block: 0.3rem; }
 
+/* "Drewhaven Group" dropdown: wider panel with the two sister hotels as cards */
+.group-panel{ left: auto; right: 0; transform: translateY(6px); width: min(500px, calc(100vw - 2rem)); padding: 1.4rem; gap: 1.1rem; }
+.nav-item.is-open .group-panel{ transform: translateY(0); }
+.group-panel__head{ display: grid; gap: 0.4rem; }
+.group-panel__eyebrow{ display: flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-bluebell-deep); }
+.group-panel__eyebrow::before{ content: ""; width: 22px; height: 1px; background: currentColor; }
+.group-panel__lead{ font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; color: var(--color-ink); }
+.group-panel__cards{ display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.dropdown-panel .group-card{ display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; white-space: normal; padding: 1.15rem 1rem 1rem; background: var(--color-ivory); border: 1px solid var(--color-line); border-radius: var(--radius-md); font-weight: 400; transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease); }
+.dropdown-panel .group-card:hover{ background: var(--color-white); border-color: var(--color-bluebell); color: var(--color-ink); transform: translateY(-2px); }
+.dropdown-panel .group-card:focus-visible{ outline: 2px solid var(--color-bluebell-deep); outline-offset: 2px; }
+.group-card__icon{ width: 40px; height: 40px; border-radius: 50%; background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 0.7rem; transition: background 0.3s var(--ease), color 0.3s var(--ease); }
+.group-card__icon svg{ width: 20px; height: 20px; }
+.group-card:hover .group-card__icon{ background: var(--color-bluebell); color: var(--color-ivory); }
+.group-card__name{ font-family: var(--font-display); font-size: 1rem; line-height: 1.2; color: var(--color-ink); }
+.group-card__place{ font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-bluebell-deep); }
+.group-card__desc{ font-size: 0.8rem; line-height: 1.5; color: var(--color-ink-soft); margin-top: 0.3rem; margin-bottom: 0.8rem; }
+.group-card__cta{ display: inline-flex; align-items: center; gap: 0.35rem; margin-top: auto; font-size: 0.8rem; font-weight: 700; color: var(--color-bluebell-deep); }
+.group-card__cta svg{ width: 12px; height: 12px; transition: transform 0.3s var(--ease); }
+.group-card:hover .group-card__cta svg{ transform: translate(2px, -2px); }
+
 .nav-right{ display: flex; align-items: center; gap: 1.5rem; }
 .nav-cta{ display: none; }
 
@@ -253,10 +274,11 @@ h1, h2, h3, h4{
 .mobile-nav a{ font-family: var(--font-display); font-size: 1.7rem; padding: 0.25rem 0; }
 .mobile-nav .mobile-sub{ display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1rem; max-width: 340px; margin-bottom: 0.4rem; }
 .mobile-nav .mobile-sub a{ font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: rgba(246,242,233,0.75); }
-.mobile-nav .btn{ margin-top: 1rem; }
+.mobile-nav .mobile-title{ font-family: var(--font-display); font-size: 1.7rem; padding: 0.25rem 0; }
+.mobile-nav .btn{ margin-top: 1rem; font-family: var(--font-body); font-size: var(--fs-small); padding: 0.95rem 1.8rem; }
 
-@media (min-width: 900px){ .nav-cta{ display: inline-flex; } .hamburger{ display: none; } .mobile-nav{ display: none; } }
-@media (max-width: 899px){ .nav-links{ display: none; } }
+@media (min-width: 1000px){ .nav-cta{ display: inline-flex; } .hamburger{ display: none; } .mobile-nav{ display: none; } }
+@media (max-width: 999px){ .nav-links{ display: none; } }
 
 /* ==========================================================================
    5. HERO (home page — full height)
@@ -363,6 +385,8 @@ h1, h2, h3, h4{
 .room-card__body{ display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.6rem 1.6rem; }
 .room-card__head{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-bottom: 0.5rem; }
 .room-card__head h4{ font-size: 1.3rem; }
+.room-card__occupancy{ display: inline-flex; align-items: center; gap: 2px; margin-left: 0.55rem; vertical-align: middle; color: var(--color-ink-soft); }
+.room-card__occupancy svg{ width: 13px; height: 13px; }
 .room-card__size{ flex-shrink: 0; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em; color: var(--color-brass); }
 .room-card__body p{ font-size: var(--fs-small); color: var(--color-ink-soft); margin-bottom: 1.1rem; }
 .room-card__foot{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-top: auto; padding-top: 1.1rem; border-top: 1px solid var(--color-line); }
@@ -399,7 +423,7 @@ h1, h2, h3, h4{
 /* ==========================================================================
    8. AMENITIES
    ========================================================================== */
-.amenities-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
+.amenities-grid{ display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
 .amenity{ background: var(--color-ivory); padding: 2.2rem 1.8rem; transition: background 0.4s var(--ease); }
 .amenity:hover{ background: var(--color-white); }
 .amenity .icon-wrap{ width: 52px; height: 52px; border-radius: 50%; background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease); }
@@ -407,6 +431,13 @@ h1, h2, h3, h4{
 .amenity .icon-wrap svg{ width: 24px; height: 24px; }
 .amenity h4{ font-size: 1.05rem; margin-bottom: 0.4rem; }
 .amenity p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
+/* 12 amenities: 1, 2, 3 or 4 columns so the last row is always full */
+@media (min-width: 560px){ .amenities-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 860px){ .amenities-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1100px){ .amenities-grid{ grid-template-columns: repeat(4, 1fr); } }
+/* TEMP: full-width card for "Private Back Garden" (13th amenity). Delete with its card if it is dropped. */
+.amenity--wide{ grid-column: 1 / -1; }
+@media (min-width: 560px){ .amenity--wide{ display: flex; align-items: center; gap: 1.4rem; } .amenity--wide .icon-wrap{ margin-bottom: 0; flex-shrink: 0; } }
 
 /* ==========================================================================
    9. GALLERY (with filter tabs)
@@ -645,8 +676,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <symbol id="icon-clock" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/>
     </symbol>
+    <symbol id="icon-person" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="10" r="5"/><path d="M6 27c0-6.5 4.5-11 10-11s10 4.5 10 11"/>
+    </symbol>
     <symbol id="icon-check" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M6 17l7 7 13-15"/>
+    </symbol>
+    <symbol id="icon-teapot" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 15h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-5Z"/><path d="M10 15v-2h9v2"/><line x1="14.5" y1="10" x2="14.5" y2="13"/><path d="M21 17h2l3-4"/><path d="M8 17H6.5a2.5 2.5 0 0 0 0 5H9"/>
+    </symbol>
+    <symbol id="icon-bath" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 17h22v2a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5v-2Z"/><line x1="9" y1="24" x2="8" y2="27"/><line x1="23" y1="24" x2="24" y2="27"/><path d="M9 17V8a3 3 0 0 1 3-3h3"/><path d="M15 5h6l-1.5 3.5h-3L15 5Z"/><line x1="16.5" y1="11" x2="16.5" y2="12.5"/><line x1="19.5" y1="11" x2="19.5" y2="12.5"/>
+    </symbol>
+    <symbol id="icon-fridge" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="4" width="14" height="24" rx="2"/><line x1="9" y1="13" x2="23" y2="13"/><line x1="13" y1="8" x2="13" y2="10"/><line x1="13" y1="17" x2="13" y2="21"/>
+    </symbol>
+    <symbol id="icon-soap" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="14" width="12" height="13" rx="2.5"/><path d="M14 14v-3h4v3"/><path d="M16 11V7h5"/><line x1="13" y1="20" x2="19" y2="20"/>
+    </symbol>
+    <symbol id="icon-towel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="7" x2="26" y2="7"/><path d="M10 7v18h12V7"/><line x1="10" y1="21" x2="22" y2="21"/>
+    </symbol>
+    <symbol id="icon-tv" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="7" width="24" height="16" rx="2"/><line x1="16" y1="23" x2="16" y2="27"/><line x1="11" y1="27" x2="21" y2="27"/>
+    </symbol>
+    <symbol id="icon-garden" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="9.5" r="5.5"/><line x1="16" y1="15" x2="16" y2="19"/><path d="M6 19h20"/><path d="M8 19v-3"/><path d="M24 19v-3"/><path d="M6 23h20"/><path d="M8 23v4"/><path d="M24 23v4"/>
+    </symbol>
+    <symbol id="icon-external" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 21L21 11"/><path d="M12 11h9v9"/>
+    </symbol>
+    <symbol id="icon-building" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="5" width="16" height="22" rx="1.5"/><path d="M13 27v-5h6v5"/><path d="M12.5 10h1M18.5 10h1M12.5 14.5h1M18.5 14.5h1"/>
     </symbol>
   </defs>
 </svg>
@@ -668,11 +729,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="dropdown-panel" role="menu">
           <a href="rooms.html" role="menuitem">All Rooms<!--&amp; Rates--></a>
           <div class="divider"></div>
-          <a href="room-single.html" role="menuitem">Single Room<!--&mdash; &pound;89 --></a>
-          <a href="room-double.html" role="menuitem">Double Room<!--&mdash; &pound;129--></a>
-          <a href="room-triple.html" role="menuitem">Triple Room<!--&mdash; &pound;149--></a>
-          <a href="room-quad.html" role="menuitem">Quad Room<!--&mdash; &pound;179--></a>
-          <a href="room-family.html" role="menuitem">Family Room<!--&mdash; &pound;180--></a>
+          <a href="standard-single-room.html" role="menuitem">Standard Single Room<!--&mdash; &pound;89 --></a>
+          <a href="deluxe-double-room.html" role="menuitem">Deluxe Double Room<!--&mdash; &pound;129--></a>
+          <a href="executive-triple-room.html" role="menuitem">Executive Triple Room<!--&mdash; &pound;149--></a>
+          <a href="family-junior-suite.html" role="menuitem">Family Junior Suite<!--&mdash; &pound;179--></a>
+          <a href="family-suite.html" role="menuitem">Family Suite<!--&mdash; &pound;180--></a>
         </div>
       </div>
 
@@ -681,6 +742,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <!-- <a href="faq.html">FAQ</a> -->
       <a href="neighbourhood.html">Neighbourhood</a>
       <a href="offers.html">Offers</a>
+
+      <div class="nav-item" id="groupNavItem">
+        <button class="nav-link-btn" id="groupDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          Drewhaven Group
+          <svg viewBox="0 0 32 32"><use href="#icon-chevron"/></svg>
+        </button>
+        <div class="dropdown-panel group-panel" role="menu">
+          <div class="group-panel__head">
+            <p class="group-panel__eyebrow">Drewhaven Group</p>
+            <p class="group-panel__lead">Stay with our sister hotels across London.</p>
+          </div>
+          <div class="group-panel__cards">
+            <a class="group-card" href="http://www.chelsea-house.co.uk/" target="_blank" rel="noopener noreferrer" role="menuitem">
+              <span class="group-card__icon"><svg viewBox="0 0 32 32"><use href="#icon-building"/></svg></span>
+              <span class="group-card__name">Chelsea House Hotel</span>
+              <span class="group-card__place">Earls Court</span>
+              <span class="group-card__desc">A bed &amp; breakfast hotel close to Earls Court station.</span>
+              <span class="group-card__cta">Visit website<span class="visually-hidden"> (opens in a new tab)</span><svg viewBox="0 0 32 32"><use href="#icon-external"/></svg></span>
+            </a>
+            <a class="group-card" href="https://acaciahotel.co.uk/" target="_blank" rel="noopener noreferrer" role="menuitem">
+              <span class="group-card__icon"><svg viewBox="0 0 32 32"><use href="#icon-building"/></svg></span>
+              <span class="group-card__name">Acacia Hotel</span>
+              <span class="group-card__place">South Kensington</span>
+              <span class="group-card__desc">A boutique hotel in a Victorian building, moments from the Tube.</span>
+              <span class="group-card__cta">Visit website<span class="visually-hidden"> (opens in a new tab)</span><svg viewBox="0 0 32 32"><use href="#icon-external"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-right">
@@ -699,17 +789,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
   <a href="rooms.html">Rooms</a>
-  <div class="mobile-sub">
-    <a href="room-single.html">Single</a>
-    <a href="room-double.html">Double</a>
-    <a href="room-triple.html">Triple</a>
-    <a href="room-quad.html">Quad</a>
-    <a href="room-family.html">Family</a>
-  </div>
   <a href="about.html">About</a>
   <a href="gallery.html">Gallery</a>
   <a href="neighbourhood.html">Neighbourhood</a>
   <a href="offers.html">Offers</a>
+  <span class="mobile-title">Drewhaven Group</span>
+  <div class="mobile-sub">
+    <a href="http://www.chelsea-house.co.uk/" target="_blank" rel="noopener noreferrer">Chelsea House Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
+    <a href="https://acaciahotel.co.uk/" target="_blank" rel="noopener noreferrer">Acacia Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
+  </div>
   <a href="#" class="btn btn--primary">Book Now</a>
 </nav>
 
@@ -722,14 +810,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media" id="heroMedia">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- HERO IMAGE (recommended size 1920x1080) — the Victorian townhouse facade works well here -->
+    <!-- <img decoding="async" class="hero-media__el" id="heroImg"
+         src="images/hero-1920x1080/hero-about-us-1920x1080.png"
+         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill"> -->
     <img decoding="async" class="hero-media__el" id="heroImg"
-         src="images/opt/hero-copy.jpg"
+         src="images/hero-1920x1080/hero-entrance-1920x1080.png"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
     <img decoding="async" class="hero-media__el" id="heroImg"
-         src="images/opt/hero-image.jpg"
+         src="images/hero-1920x1080/hero-architecture-1920x1080.png"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
     <img decoding="async" class="hero-media__el" id="heroImg"
-         src="images/opt/hero.jpg"
+         src="images/hero-1920x1080/hero-facade-1920x1080.png"
+         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
+    <img decoding="async" class="hero-media__el" id="heroImg"
+         src="images/hero-1920x1080/hero-home-primary-1920x1080.jpg"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
     <!--
       TO USE A VIDEO INSTEAD OF A STILL IMAGE:
@@ -832,93 +926,98 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <p class="eyebrow" style="justify-content:center;">Stay With Us</p>
       <h2>A room for every kind of stay</h2>
       <!-- <p>All rooms carry the same warm, home-like feel, with modern comforts built into a building that's been part of Notting Hill for over two centuries.</p> -->
-       <p>26 rooms across four floors, each set within the townhouse’s period proportions — from cosy Singles for solo travellers to a Family Room that sleeps five.</p>
+       <p>26 rooms across four floors, each set within the townhouse’s period proportions — from cosy Standard Singles for solo travellers to a Family Suite that sleeps five.</p>
     </div>
 
     <!-- Room category cards — each links to its own detail page -->
     <div class="room-grid reveal-stagger" style="margin-top: 3rem;">
 
       <article class="room-card reveal" style="--stagger:0">
-        <a href="room-single.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-single-room-hero.jpg" alt="Single Room">
+        <a href="standard-single-room.html" class="room-card__media">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-single-room-hero.jpg" alt="Standard Single Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="room-single.html">Single Room</a></h4>
+            <h4><a href="standard-single-room.html">Standard Single Room</a><span class="room-card__occupancy" aria-label="Sleeps 1"><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg></span></h4>
             <span class="room-card__size">11 m&sup2;</span>
           </div>
           <p>A compact, well-appointed room built for solo stays, with everything close at hand.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 single bed</span>
-            <span class="room-card__price">from &pound;99 <span>/ night</span></span>
+            <!-- <span class="room-card__price">from &pound;99 <span>/ night</span></span> -->
+            <div class="room-spec"><dt>Max Capacity : 1 guest</dt></div>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:1">
-        <a href="room-double.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-double-room-3.jpg" alt="Double Room">
+        <a href="deluxe-double-room.html" class="room-card__media">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-double-room-3.jpg" alt="Deluxe Double Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="room-double.html">Double Room</a></h4>
+            <h4><a href="deluxe-double-room.html">Deluxe Double Room</a><span class="room-card__occupancy" aria-label="Sleeps 2"><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg></span></h4>
             <span class="room-card__size">20 m&sup2;</span>
           </div>
           <p>A warm, light-filled room with a full-size double bed — ideal for couples exploring Notting Hill.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 double bed</span>
-            <span class="room-card__price">from &pound;139 <span>/ night</span></span>
+            <!-- <span class="room-card__price">from &pound;139 <span>/ night</span></span> -->
+            <div class="room-spec"><dt>Max Capacity : 2 guests</dt></div>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:2">
-        <a href="room-triple.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-triple.jpg" alt="Triple Room">
+        <a href="executive-triple-room.html" class="room-card__media">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-triple.jpg" alt="Executive Triple Room">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="room-triple.html">Triple Room</a></h4>
+            <h4><a href="executive-triple-room.html">Executive Triple Room</a><span class="room-card__occupancy" aria-label="Sleeps 3"><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg></span></h4>
             <span class="room-card__size">24 m&sup2;</span>
           </div>
           <p>Extra space for three, with a flexible bed configuration to suit your group.</p>
           <div class="room-card__foot">
             <span class="room-card__beds">1 double &amp; 1 single bed</span>
-            <span class="room-card__price">from &pound;159 <span>/ night</span></span>
+            <!-- <span class="room-card__price">from &pound;159 <span>/ night</span></span> -->
+            <div class="room-spec"><dt>Max Capacity : 3 guests</dt></div>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:3">
-        <a href="room-quad.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-quad-room.jpg" alt="Quad Room">
+        <a href="family-junior-suite.html" class="room-card__media">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-quad-room.jpg" alt="Family Junior Suite">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="room-quad.html">Quad Room</a></h4>
+            <h4><a href="family-junior-suite.html">Family Junior Suite</a></h4>
             <span class="room-card__size">22 m&sup2;</span>
           </div>
           <p>Our largest standard room, sleeping up to four — practical, comfortable, ready for a group.</p>
           <div class="room-card__foot">
-            <span class="room-card__beds">2 double beds</span>
-            <span class="room-card__price">from &pound;199 <span>/ night</span></span>
+            <span class="room-card__beds">1 double bed & 1 sofa bed</span>
+            <!-- <span class="room-card__price">from &pound;199 <span>/ night</span></span> -->
+             <span class="room-card__occupancy" aria-label="Sleeps 4"><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg></span>
           </div>
         </div>
       </article>
 
       <article class="room-card reveal" style="--stagger:4">
-        <a href="room-family.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-family-1.jpg" alt="Family Room">
+        <a href="family-suite.html" class="room-card__media">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-family-1.jpg" alt="Family Suite">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="room-family.html">Family Room</a></h4>
+            <h4><a href="family-suite.html">Family Suite</a></h4>
             <span class="room-card__size">28 m&sup2;</span>
           </div>
           <p>A generously sized room with space to spread out after a day at Hyde Park or Kensington Gardens.</p>
           <div class="room-card__foot">
-            <span class="room-card__beds">1 double &amp; 2 single beds</span>
-            <span class="room-card__price">from &pound;239 <span>/ night</span></span>
+            <span class="room-card__beds">1 Double, 1 sofa bed..</span>
+            <!-- <span class="room-card__price">from &pound;239 <span>/ night</span></span> -->
+             <span class="room-card__occupancy" aria-label="Sleeps 5"><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg><svg viewBox="0 0 32 32"><use href="#icon-person"/></svg></span>
           </div>
         </div>
       </article>
@@ -943,9 +1042,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 <section class="section" id="amenities">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Amenities</p>
+      <p class="eyebrow">Why Stay With Us</p>
       <h2>Everything you need, nothing you don't</h2>
-      <p>Small hotel, thoughtful details. Here's what's included in every stay.</p>
+      <p>Boutique hotel, thoughtful details. Here's what's included in every stay.</p>
     </div>
 
     <div class="amenities-grid reveal">
@@ -957,7 +1056,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-cup"/></svg></div>
         <h4>Continental breakfast</h4>
-        <p>Included with every stay, served each morning downstairs.</p>
+        <p>Included if booked direct, served each morning downstairs.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-nosmoke"/></svg></div>
@@ -978,6 +1077,44 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-pin"/></svg></div>
         <h4>Steps from Portobello Road</h4>
         <p>Antiques, cafés and Saturday markets, all on your doorstep.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-teapot"/></svg></div>
+        <h4>Tea &amp; coffee maker</h4>
+        <p>In every room, so a proper brew is ready whenever you are.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-bath"/></svg></div>
+        <h4>En-suite bathroom</h4>
+        <p>Your own private bathroom in every room, hairdryer included.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-fridge"/></svg></div>
+        <h4>Mini fridge in your room</h4>
+        <p>Keep water, milk and market treats cool until you want them.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-soap"/></svg></div>
+        <h4>Free toiletries</h4>
+        <p>Shampoo, body soap and more, so you can travel a little lighter.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-towel"/></svg></div>
+        <h4>Fresh linen &amp; towels</h4>
+        <p>Crisp bedding and soft towels, freshly laundered for every guest.</p>
+      </div>
+      <div class="amenity">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-tv"/></svg></div>
+        <h4>TV in every room</h4>
+        <p>Settle in with a favourite show after a long day out in London.</p>
+      </div>
+      <!-- TEMP: Private Back Garden (13th amenity, full-width). Keep or delete this card + .amenity--wide CSS + #icon-garden symbol. -->
+      <div class="amenity amenity--wide">
+        <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-garden"/></svg></div>
+        <div>
+          <h4>Private Back Garden</h4>
+          <p>A quiet private garden with seating, just steps from your room.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1000,12 +1137,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">The Facade</span>
       </div>
       <div class="gallery-item">
-        <img decoding="async" loading="lazy" src="images/opt/double-room-1.jpg" alt="Double room interior">
-        <span class="gallery-item__caption">Double Room</span>
+        <img decoding="async" loading="lazy" src="images/opt/double-room-1.jpg" alt="Deluxe Double Room interior">
+        <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item">
-        <img decoding="async" loading="lazy" src="https://placehold.co/700x500/7D8A6B/F6F2E9?text=Reception" alt="Hotel Bluebells reception area">
-        <span class="gallery-item__caption">Reception</span>
+        <img decoding="async" loading="lazy" src="images/hero.png" alt="Hotel Bluebells reception area">
+        <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item tall">
         <img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="A guest bathroom at Hotel Bluebells">
@@ -1281,28 +1418,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ------------------------------------------------------------------------
-     2. "ROOMS" DROPDOWN — click to open/close, closes on outside click / Escape
+     2. NAV DROPDOWNS ("Rooms", "Drewhaven Group") — click to open/close, one open
+        at a time, closes on outside click / Escape / link click
      ---------------------------------------------------------------------- */
-  var roomsNavItem = document.getElementById('roomsNavItem');
-  var roomsDropdownBtn = document.getElementById('roomsDropdownBtn');
-  if (roomsNavItem && roomsDropdownBtn) {
-    var closeDropdown = function () {
-      roomsNavItem.classList.remove('is-open');
-      roomsDropdownBtn.setAttribute('aria-expanded', 'false');
+  var navItems = document.querySelectorAll('.nav-item');
+  if (navItems.length) {
+    var closeDropdowns = function (except) {
+      navItems.forEach(function (item) {
+        if (item === except) return;
+        item.classList.remove('is-open');
+        var itemBtn = item.querySelector('.nav-link-btn');
+        if (itemBtn) itemBtn.setAttribute('aria-expanded', 'false');
+      });
     };
-    roomsDropdownBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var isOpen = roomsNavItem.classList.toggle('is-open');
-      roomsDropdownBtn.setAttribute('aria-expanded', String(isOpen));
+    navItems.forEach(function (item) {
+      var btn = item.querySelector('.nav-link-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeDropdowns(item);
+        var isOpen = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+      item.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeDropdowns(); });
+      });
     });
     document.addEventListener('click', function (e) {
-      if (!roomsNavItem.contains(e.target)) closeDropdown();
+      if (!e.target.closest('.nav-item')) closeDropdowns();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeDropdown();
-    });
-    roomsNavItem.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeDropdown);
+      if (e.key === 'Escape') closeDropdowns();
     });
   }
 
