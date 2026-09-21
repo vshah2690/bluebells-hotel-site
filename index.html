@@ -398,7 +398,7 @@ h1, h2, h3, h4{
 .room-card:hover .room-card__media img{ transform: scale(1.05); }
 .room-card__body{ display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.6rem 1.6rem; }
 .room-card__head{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-bottom: 0.5rem; }
-.room-card__head h4{ font-size: 1.3rem; }
+.room-card__head h3{ font-size: 1.3rem; }
 .room-card__occupancy{ display: inline-flex; align-items: center; gap: 2px; margin-left: 0.55rem; vertical-align: middle; color: var(--color-ink-soft); }
 .room-card__occupancy svg{ width: 13px; height: 13px; }
 .room-card__size{ flex-shrink: 0; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em; color: var(--color-brass); }
@@ -443,7 +443,7 @@ h1, h2, h3, h4{
 .amenity .icon-wrap{ width: 52px; height: 52px; border-radius: 50%; background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease); }
 .amenity:hover .icon-wrap{ background: var(--color-bluebell); color: var(--color-ivory); transform: rotate(-8deg) scale(1.06); }
 .amenity .icon-wrap svg{ width: 24px; height: 24px; }
-.amenity h4{ font-size: 1.05rem; margin-bottom: 0.4rem; }
+.amenity h3{ font-size: 1.05rem; margin-bottom: 0.4rem; }
 .amenity p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 /* 12 amenities: 1, 2, 3 or 4 columns so the last row is always full */
 @media (min-width: 560px){ .amenities-grid{ grid-template-columns: repeat(2, 1fr); } }
@@ -572,7 +572,7 @@ h1, h2, h3, h4{
 .directions-grid{ display: grid; gap: 1.6rem; margin-top: 0.5rem; }
 @media (min-width: 640px){ .directions-grid{ grid-template-columns: 1fr 1fr; } }
 .directions-card{ background: var(--color-white); border-radius: var(--radius-md); padding: 1.6rem 1.7rem; box-shadow: 0 1px 0 var(--color-line); }
-.directions-card h4{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
+.directions-card h2, .directions-card h3{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
 .directions-card p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 @media (min-width: 860px){ .contact-grid{ grid-template-columns: 1fr 1fr; } .form-row{ grid-template-columns: 1fr 1fr; } }
@@ -596,7 +596,7 @@ h1, h2, h3, h4{
 .footer-grid{ display: grid; grid-template-columns: 1fr; gap: 2.6rem; padding-bottom: clamp(2.5rem, 5vw, 3.5rem); border-bottom: 1px solid var(--color-line-on-dark); }
 .footer-brand .logo{ color: var(--color-ivory); margin-bottom: 1rem; }
 .footer-brand p{ color: rgba(246,242,233,0.7); font-size: var(--fs-small); max-width: 30ch; }
-.footer-col h5{ font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
+.footer-col__title{ font-size: 0.78rem; font-weight: 700; margin-top: 1.67em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
 .footer-col ul{ display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-col a{ font-size: var(--fs-small); color: rgba(246,242,233,0.82); transition: color 0.3s var(--ease); }
 .footer-col a:hover{ color: var(--color-ivory); }
@@ -1029,7 +1029,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="standard-single-room.html">Standard Single Room</a></h4>
+            <h3><a href="standard-single-room.html">Standard Single Room</a></h3>
             <span class="room-card__size">11 m&sup2;</span>
           </div>
           <p>A compact, well-appointed room built for solo stays, with everything close at hand.</p>
@@ -1048,7 +1048,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="deluxe-double-room.html">Deluxe Double Room</a></h4>
+            <h3><a href="deluxe-double-room.html">Deluxe Double Room</a></h3>
             <span class="room-card__size">20 m&sup2;</span>
           </div>
           <p>A warm, light-filled room with a full-size double bed — ideal for couples exploring Notting Hill.</p>
@@ -1067,7 +1067,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="executive-triple-room.html">Executive Triple Room</a></h4>
+            <h3><a href="executive-triple-room.html">Executive Triple Room</a></h3>
             <span class="room-card__size">24 m&sup2;</span>
           </div>
           <p>Extra space for three, with a flexible bed configuration to suit your group.</p>
@@ -1086,7 +1086,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="family-junior-suite.html">Family Junior Suite</a></h4>
+            <h3><a href="family-junior-suite.html">Family Junior Suite</a></h3>
             <span class="room-card__size">22 m&sup2;</span>
           </div>
           <p>Our largest standard room, sleeping up to four — practical, comfortable, ready for a group.</p>
@@ -1104,7 +1104,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="family-suite.html">Family Suite</a></h4>
+            <h3><a href="family-suite.html">Family Suite</a></h3>
             <span class="room-card__size">28 m&sup2;</span>
           </div>
           <p>A generously sized room with space to spread out after a day at Hyde Park or Kensington Gardens.</p>
@@ -1144,69 +1144,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="amenities-grid reveal">
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-wifi"/></svg></div>
-        <h4>Free Wi-Fi throughout</h4>
+        <h3>Free Wi-Fi throughout</h3>
         <p>Fast, free, and it reaches every floor of the building.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-cup"/></svg></div>
-        <h4>Continental breakfast</h4>
+        <h3>Continental breakfast</h3>
         <p>Included if booked direct, served each morning downstairs.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-nosmoke"/></svg></div>
-        <h4>Non-smoking rooms</h4>
+        <h3>Non-smoking rooms</h3>
         <p>Every room in the house, kept fresh for the next guest.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-luggage"/></svg></div>
-        <h4>Free luggage storage</h4>
+        <h3>Free luggage storage</h3>
         <p>Early arrival or late flight home? Drop your bags and go explore.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-parking"/></svg></div>
-        <h4>On-street parking nearby</h4>
+        <h3>On-street parking nearby</h3>
         <p>Paid on-street parking is available right outside, for guests driving in.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-pin"/></svg></div>
-        <h4>Steps from Portobello Road</h4>
+        <h3>Steps from Portobello Road</h3>
         <p>Antiques, cafés and Saturday markets, all on your doorstep.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-teapot"/></svg></div>
-        <h4>Tea &amp; coffee maker</h4>
+        <h3>Tea &amp; coffee maker</h3>
         <p>In every room, so a proper brew is ready whenever you are.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-bath"/></svg></div>
-        <h4>En-suite bathroom</h4>
+        <h3>En-suite bathroom</h3>
         <p>Your own private bathroom in every room, hairdryer included.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-fridge"/></svg></div>
-        <h4>Mini fridge in your room</h4>
+        <h3>Mini fridge in your room</h3>
         <p>Keep water, milk and market treats cool until you want them.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-soap"/></svg></div>
-        <h4>Free toiletries</h4>
+        <h3>Free toiletries</h3>
         <p>Shampoo, body soap and more, so you can travel a little lighter.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-towel"/></svg></div>
-        <h4>Fresh linen &amp; towels</h4>
+        <h3>Fresh linen &amp; towels</h3>
         <p>Crisp bedding and soft towels, freshly laundered for every guest.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-tv"/></svg></div>
-        <h4>TV in every room</h4>
+        <h3>TV in every room</h3>
         <p>Settle in with a favourite show after a long day out in London.</p>
       </div>
       <!-- TEMP: Private Back Garden (13th amenity, full-width). Keep or delete this card + .amenity--wide CSS + #icon-garden symbol. -->
       <div class="amenity amenity--wide">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-garden"/></svg></div>
         <div>
-          <h4>Private Back Garden</h4>
+          <h3>Private Back Garden</h3>
           <p>A quiet private garden with seating, just steps from your room.</p>
         </div>
       </div>
@@ -1408,7 +1408,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Explore</h5>
+        <p class="footer-col__title">Explore</p>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="rooms.html">Rooms</a></li>
@@ -1418,7 +1418,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Our Hotel</h5>
+        <p class="footer-col__title">Our Hotel</p>
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="offers.html">Offers</a></li>
@@ -1428,7 +1428,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <p class="footer-col__title">Contact</p>
         <ul>
           <li><a href="tel:+442077276666">+44 (0)20 7727 6666</a></li>
           <li><a href="mailto:info@hotelbluebells.com">info@hotelbluebells.com</a></li>
