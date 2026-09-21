@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -821,11 +822,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Single bed, desk and tall sash window in a green-walled Standard Single Room" width="1536" height="1024">
+        <picture><source srcset="images/single%20_%20room%20-%20hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Single bed, desk and tall sash window in a green-walled Standard Single Room" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Standard Single Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1536" height="1024">
+        <picture><source srcset="images/quad%20room.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Family Junior Suite</span>
       </div>
       <div class="gallery-item" data-category="hotel">
@@ -841,7 +842,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">Lounge</span>
       </div>
       <div class="gallery-item" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Hotel entrance with sign, red door and black iron railings above stone steps" width="6240" height="4160">
+        <picture><source srcset="images/Hero%20image.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Hotel entrance with sign, red door and black iron railings above stone steps" width="6240" height="4160"></picture>
         <span class="gallery-item__caption">Outdoors</span>
       </div>
       <div class="gallery-item" data-category="rooms">
@@ -849,11 +850,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">Family Suite</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room with a double bed, single bed and a window view" width="1536" height="1024">
+        <picture><source srcset="images/triple.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room with a double bed, single bed and a window view" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Executive Triple Room</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536">
+        <picture><source srcset="images/hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536"></picture>
         <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item" data-category="bathroom">
@@ -861,11 +862,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">Ensuite Detail</span>
       </div>
       <div class="gallery-item" data-category="dining">
-        <img decoding="async" loading="lazy" src="images/tea facility.png" alt="Kettle, cups and glasses on a tray inside a wooden cabinet" width="1537" height="1023">
+        <picture><source srcset="images/tea%20facility.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/tea facility.png" alt="Kettle, cups and glasses on a tray inside a wooden cabinet" width="1537" height="1023"></picture>
         <span class="gallery-item__caption">Morning Coffee</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/garden terrace.png" alt="Sunlit back garden terrace with café table, chairs and potted plants" width="1536" height="1024">
+        <picture><source srcset="images/garden%20terrace.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/garden terrace.png" alt="Sunlit back garden terrace with café table, chairs and potted plants" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Garden</span>
       </div>
     </div>
@@ -964,7 +965,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1133,7 +1134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');

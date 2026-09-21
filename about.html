@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -957,7 +958,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1126,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');

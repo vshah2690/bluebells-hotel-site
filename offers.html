@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -786,7 +787,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- OFFERS HERO IMAGE (recommended size 1920x900) -->
-    <img decoding="async" class="hero-media__el" src="images/offers-hero-1920x1080.png" alt="Two cups on a tray on a maroon bedspread beside a window" width="1920" height="1080" fetchpriority="high">
+    <picture><source srcset="images/offers-hero-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el" src="images/offers-hero-1920x1080.png" alt="Two cups on a tray on a maroon bedspread beside a window" width="1920" height="1080" fetchpriority="high"></picture>
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -808,7 +809,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="offer-card reveal" style="--stagger:0">
         <div class="offer-card__media">
           <!-- OFFER CARD IMAGE 1 (recommended size 700x560) -->
-          <img decoding="async" loading="lazy" src="images/offer-book-direct-700x560.png" alt="Folded white towels on a maroon bedspread beside a bedside lamp" width="700" height="560">
+          <picture><source srcset="images/offer-book-direct-700x560.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/offer-book-direct-700x560.png" alt="Folded white towels on a maroon bedspread beside a bedside lamp" width="700" height="560"></picture>
         </div>
         <div class="offer-card__body">
           <span class="tag">Book Direct Rate</span>
@@ -821,7 +822,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="offer-card reveal" style="--stagger:1">
         <div class="offer-card__media">
           <!-- OFFER CARD IMAGE 2 (recommended size 700x560) -->
-          <img decoding="async" loading="lazy" src="images/offer-best-rate-700x560.png" alt="Brass reception bell and room keys on a polished wooden desk" width="700" height="560">
+          <picture><source srcset="images/offer-best-rate-700x560.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/offer-best-rate-700x560.png" alt="Brass reception bell and room keys on a polished wooden desk" width="700" height="560"></picture>
         </div>
         <div class="offer-card__body">
           <span class="tag">Best Rate Guarantee</span>
@@ -839,7 +840,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="cta-band reveal">
       <div class="cta-band-media">
         <!-- VOUCHERS BAND IMAGE (recommended size 1600x700) -->
-        <img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="" width="1600" height="700">
+        <picture><source srcset="images/offer-gift-voucher-1600x700.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="" width="1600" height="700"></picture>
       </div>
       <div class="cta-band-inner">
         <div>
@@ -947,7 +948,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1116,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');

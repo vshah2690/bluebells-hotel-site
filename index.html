@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -903,15 +904,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <!-- <img decoding="async" class="hero-media__el" id="heroImg"
          src="images/hero-1920x1080/hero-about-us-1920x1080.png"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill"> -->
-    <img decoding="async" class="hero-media__el" id="heroImg"
+    <picture><source srcset="images/hero-1920x1080/hero-entrance-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el" id="heroImg"
          src="images/hero-1920x1080/hero-entrance-1920x1080.png"
-         alt="Steps and black iron railings leading up to the white entrance of Hotel Bluebells" width="1920" height="1080" fetchpriority="high">
-    <img decoding="async" class="hero-media__el"
+         alt="Steps and black iron railings leading up to the white entrance of Hotel Bluebells" width="1920" height="1080" fetchpriority="high"></picture>
+    <picture><source srcset="images/hero-1920x1080/hero-architecture-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-architecture-1920x1080.png"
-         alt="Ornate white stucco balconies and rooftop detail on the Hotel Bluebells building" width="1920" height="1080" fetchpriority="low">
-    <img decoding="async" class="hero-media__el"
+         alt="Ornate white stucco balconies and rooftop detail on the Hotel Bluebells building" width="1920" height="1080" fetchpriority="low"></picture>
+    <picture><source srcset="images/hero-1920x1080/hero-facade-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-facade-1920x1080.png"
-         alt="Hotel Bluebells sign above the red front door and the number 14 plaque" width="1920" height="1080" fetchpriority="low">
+         alt="Hotel Bluebells sign above the red front door and the number 14 plaque" width="1920" height="1080" fetchpriority="low"></picture>
     <img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-home-primary-1920x1080.jpg"
          alt="White Notting Hill townhouse front with iron railings and a bay window at Hotel Bluebells" width="1920" height="1080" fetchpriority="low">
@@ -1234,7 +1235,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item">
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536">
+        <picture><source srcset="images/hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536"></picture>
         <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item tall">
@@ -1322,7 +1323,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="cta-band reveal">
       <div class="cta-band-media">
         <!-- OFFERS BAND BACKGROUND IMAGE (recommended size 1600x700) -->
-        <img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="" width="1600" height="700">
+        <picture><source srcset="images/offer-gift-voucher-1600x700.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="" width="1600" height="700"></picture>
       </div>
       <div class="cta-band-inner">
         <div>
@@ -1483,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1652,7 +1653,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
