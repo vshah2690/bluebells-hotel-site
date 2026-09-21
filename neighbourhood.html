@@ -60,7 +60,7 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -808,7 +808,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- NEIGHBOURHOOD HERO IMAGE (recommended size 1920x900) -->
-    <img decoding="async" class="hero-media__el" src="images/opt/kensington-palace-copy.jpg" alt="A row of pastel townhouses on a Notting Hill street near Hotel Bluebells">
+    <img decoding="async" class="hero-media__el" src="images/opt/kensington-palace-copy.jpg" alt="Kensington Palace seen across grass and railings in soft evening light" width="1086" height="741" fetchpriority="high">
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -830,7 +830,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <div class="about-media reveal">
         <!-- NEIGHBOURHOOD IMAGE 1 (recommended size 1000x1250, portrait) -->
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="The garden and railings of Pembridge Square in Notting Hill">
+        <img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536">
         <p hidden>Photo: “13 Pembridge Square” by No Swan So Fine, licensed under CC BY-SA 4.0. Resized and cropped.</p>
         <svg class="sprig" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
       </div>
@@ -931,7 +931,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="stay-row reveal">
       <div class="stay-media">
         <!-- MARKET IMAGE (recommended size 1000x750) -->
-        <img decoding="async" loading="lazy" src="images/opt/notting-hill-location-900x1100.jpg" alt="Antiques stalls on Portobello Road on a Saturday morning">
+        <img decoding="async" loading="lazy" src="images/opt/notting-hill-location-900x1100.jpg" alt="The blue Travel Book Shop storefront on a Notting Hill street" width="900" height="1100">
       </div>
       <div class="stay-copy">
         <span class="tag">Portobello Road</span>
@@ -944,7 +944,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="stay-row reverse reveal">
       <div class="stay-media">
         <!-- PARKS IMAGE (recommended size 1000x750) -->
-        <img decoding="async" loading="lazy" src="images/opt/autumn-in-kensington-gardens-london-geograph-org-uk-2642487.jpg" alt="A tree-lined path in Kensington Gardens">
+        <img decoding="async" loading="lazy" src="images/opt/autumn-in-kensington-gardens-london-geograph-org-uk-2642487.jpg" alt="Autumn leaves under trees on a grassy path in Kensington Gardens" width="1280" height="960">
         <p hidden>“Autumn in Kensington Gardens – London” by Mick Lobb,licensed under<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
       </div>
       <div class="stay-copy">
@@ -1080,7 +1080,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 

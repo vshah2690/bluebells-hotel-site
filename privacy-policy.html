@@ -38,7 +38,7 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -807,7 +807,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- PRIVACY HERO IMAGE (recommended size 1920x900) -->
-    <img decoding="async" class="hero-media__el" src="images/opt/bluebells-privacy-policy-1920x900.jpg" alt="The entrance hall of Hotel Bluebells">
+    <img decoding="async" class="hero-media__el" src="images/opt/bluebells-privacy-policy-1920x900.jpg" alt="" width="1920" height="900" fetchpriority="high">
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -974,7 +974,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 

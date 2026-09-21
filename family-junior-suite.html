@@ -39,7 +39,7 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -922,7 +922,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- FAMILY JUNIOR SUITE HERO IMAGE (recommended size 1920x1000) -->
-    <img decoding="async" class="hero-media__el" src="images/opt/quad-room.jpg" alt="Family Junior Suite at Hotel Bluebells">
+    <img decoding="async" class="hero-media__el" src="images/opt/quad-room.jpg" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1536" height="1024" fetchpriority="high">
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -937,16 +937,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <div class="room-detail-media room-gallery reveal">
         <!-- FAMILY JUNIOR SUITE DETAIL IMAGE (recommended size 900x1100, portrait) -->
-        <img decoding="async" loading="lazy" src="images/opt/quad-room-1.jpg" alt="Interior of a Family Junior Suite at Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/opt/quad-room-1.jpg" alt="Two beds with a tufted headboard and patterned cushions beside a large window" width="1280" height="854">
         <!-- EXTRA PHOTOS: one <figure> per photo. Add or delete lines freely (about 2 to 5 looks best) and the script
              at the foot of the page re-plans the grid by itself, with a fresh random arrangement on every visit.
              To keep one arrangement you like, add data-seed="NUMBER" below (the number in use is shown in the
              data-seed-used attribute in the browser inspector). -->
         <div class="room-gallery__more">
-          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="Ensuite basin with round mirror"></figure>
-          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/quad-room-2.jpg" alt="TV, desk and tea tray in a Family Junior Suite"></figure>
-          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/garden-terrace.jpg" alt="The hotel's private back garden"></figure>
-          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/shower.jpg" alt="Ensuite shower room"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="Ensuite bathroom with a round mirror, basin and glass shower screen" width="1280" height="852"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/quad-room-2.jpg" alt="TV, desk and tea tray in a Family Junior Suite" width="1280" height="852"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/garden-terrace.jpg" alt="Private back garden with a café table and potted plants at Hotel Bluebells" width="1280" height="853"></figure>
+          <figure class="room-gallery__tile"><img decoding="async" loading="lazy" src="images/opt/shower.jpg" alt="Tiled shower cubicle with rain shower head and wall-mounted basin" width="1280" height="852"></figure>
         </div>
       </div>
 
@@ -1057,7 +1057,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 

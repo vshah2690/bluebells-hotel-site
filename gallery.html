@@ -38,7 +38,7 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -786,7 +786,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- GALLERY HERO IMAGE (recommended size 1920x1000) -->
-    <img decoding="async" class="hero-media__el" src="images/opt/hero-about-us-copy.jpg" alt="A collage-style view inside Hotel Bluebells">
+    <img decoding="async" class="hero-media__el" src="images/opt/hero-about-us-copy.jpg" alt="Hotel Bluebells entrance with stone steps, iron railings and flower boxes" width="1024" height="772" fetchpriority="high">
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -813,59 +813,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <!-- Each gallery image: replace src + alt with your own photo. data-category controls the filter buttons above. -->
     <div class="gallery-grid reveal" id="galleryGrid">
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/opt/hero-facade.jpg" alt="Hotel Bluebells townhouse facade">
+        <img decoding="async" loading="lazy" src="images/opt/hero-facade.jpg" alt="White columns and a red front door at the entrance of Hotel Bluebells" width="1023" height="1537">
         <span class="gallery-item__caption">The Facade</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/opt/double-room-2.jpg" alt="Deluxe Double Room interior">
+        <img decoding="async" loading="lazy" src="images/opt/double-room-2.jpg" alt="Deluxe Double Room with an arched window, bedside lamps and a desk chair" width="1280" height="852">
         <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Standard Single Room interior">
+        <img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Single bed, desk and tall sash window in a green-walled Standard Single Room" width="1536" height="1024">
         <span class="gallery-item__caption">Standard Single Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite interior">
+        <img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1536" height="1024">
         <span class="gallery-item__caption">Family Junior Suite</span>
       </div>
       <div class="gallery-item" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/opt/cozy-hotel-room-with-city-views-1.jpg" alt="Hotel Bluebells reception area">
+        <img decoding="async" loading="lazy" src="images/opt/cozy-hotel-room-with-city-views-1.jpg" alt="Sash window in a guest room overlooking neighbouring white townhouses" width="1280" height="852">
         <span class="gallery-item__caption">Room View</span>
       </div>
       <div class="gallery-item tall" data-category="bathroom">
-        <img decoding="async" loading="lazy" src="images/opt/bathroom-1.jpg" alt="A guest bathroom at Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom-1.jpg" alt="Shower with heated towel rail and toiletries on a woven stool" width="1023" height="1537">
         <span class="gallery-item__caption"><!--Guest-->Bathroom</span>
       </div>
       <div class="gallery-item" data-category="dining">
-        <img decoding="async" loading="lazy" src="images/opt/living-room.jpg" alt="Continental breakfast room">
+        <img decoding="async" loading="lazy" src="images/opt/living-room.jpg" alt="Dining room with wooden tables, green panelling and a patterned wall mural" width="1280" height="854">
         <span class="gallery-item__caption">Lounge</span>
       </div>
       <div class="gallery-item" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Pembridge Square near the hotel">
+        <img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Hotel entrance with sign, red door and black iron railings above stone steps" width="6240" height="4160">
         <span class="gallery-item__caption">Outdoors</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/opt/family.jpg" alt="Family Suite interior">
+        <img decoding="async" loading="lazy" src="images/opt/family.jpg" alt="Family Suite with a tufted headboard double bed and two further beds" width="1280" height="960">
         <span class="gallery-item__caption">Family Suite</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room interior">
+        <img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room with a double bed, single bed and a window view" width="1536" height="1024">
         <span class="gallery-item__caption">Executive Triple Room</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="The staircase inside Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536">
         <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item" data-category="bathroom">
-        <img decoding="async" loading="lazy" src="images/opt/bathroom.jpg" alt="An ensuite bathroom detail">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom.jpg" alt="Ensuite shower cubicle with heated towel rail, hairdryer and basin" width="1280" height="853">
         <span class="gallery-item__caption">Ensuite Detail</span>
       </div>
       <div class="gallery-item" data-category="dining">
-        <img decoding="async" loading="lazy" src="images/tea facility.png" alt="Coffee served at breakfast">
+        <img decoding="async" loading="lazy" src="images/tea facility.png" alt="Kettle, cups and glasses on a tray inside a wooden cabinet" width="1537" height="1023">
         <span class="gallery-item__caption">Morning Coffee</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/garden terrace.png" alt="The staircase inside Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/garden terrace.png" alt="Sunlit back garden terrace with café table, chairs and potted plants" width="1536" height="1024">
         <span class="gallery-item__caption">Garden</span>
       </div>
     </div>
@@ -936,7 +936,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 
