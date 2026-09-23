@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Hotel Bluebells | Notting Hill, London</title>
 <meta name="description" content="Browse photos of Hotel Bluebells' rooms, townhouse and details — a boutique hotel in Notting Hill, London.">
+<link rel="canonical" href="https://www.hotelbluebells.com/gallery.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<!-- STAGING-NOINDEX-START -->
+<meta name="robots" content="noindex, nofollow">
+<!-- STAGING-NOINDEX-END -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hotel Bluebells">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Gallery | Hotel Bluebells | Notting Hill, London">
+<meta property="og:description" content="Browse photos of Hotel Bluebells' rooms, townhouse and details — a boutique hotel in Notting Hill, London.">
+<meta property="og:url" content="https://www.hotelbluebells.com/gallery.html">
+<meta property="og:image" content="https://www.hotelbluebells.com/images/opt/hero-neighbourhood.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +38,8 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -363,7 +377,7 @@ h1, h2, h3, h4{
 .room-card:hover .room-card__media img{ transform: scale(1.05); }
 .room-card__body{ display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.6rem 1.6rem; }
 .room-card__head{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-bottom: 0.5rem; }
-.room-card__head h4{ font-size: 1.3rem; }
+.room-card__head h3{ font-size: 1.3rem; }
 .room-card__size{ flex-shrink: 0; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em; color: var(--color-brass); }
 .room-card__body p{ font-size: var(--fs-small); color: var(--color-ink-soft); margin-bottom: 1.1rem; }
 .room-card__foot{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-top: auto; padding-top: 1.1rem; border-top: 1px solid var(--color-line); }
@@ -406,7 +420,7 @@ h1, h2, h3, h4{
 .amenity .icon-wrap{ width: 52px; height: 52px; border-radius: 50%; background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease); }
 .amenity:hover .icon-wrap{ background: var(--color-bluebell); color: var(--color-ivory); transform: rotate(-8deg) scale(1.06); }
 .amenity .icon-wrap svg{ width: 24px; height: 24px; }
-.amenity h4{ font-size: 1.05rem; margin-bottom: 0.4rem; }
+.amenity h3{ font-size: 1.05rem; margin-bottom: 0.4rem; }
 .amenity p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 /* ==========================================================================
@@ -528,7 +542,7 @@ h1, h2, h3, h4{
 .directions-grid{ display: grid; gap: 1.6rem; margin-top: 0.5rem; }
 @media (min-width: 640px){ .directions-grid{ grid-template-columns: 1fr 1fr; } }
 .directions-card{ background: var(--color-white); border-radius: var(--radius-md); padding: 1.6rem 1.7rem; box-shadow: 0 1px 0 var(--color-line); }
-.directions-card h4{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
+.directions-card h2, .directions-card h3{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
 .directions-card p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 @media (min-width: 860px){ .contact-grid{ grid-template-columns: 1fr 1fr; } .form-row{ grid-template-columns: 1fr 1fr; } }
@@ -552,7 +566,7 @@ h1, h2, h3, h4{
 .footer-grid{ display: grid; grid-template-columns: 1fr; gap: 2.6rem; padding-bottom: clamp(2.5rem, 5vw, 3.5rem); border-bottom: 1px solid var(--color-line-on-dark); }
 .footer-brand .logo{ color: var(--color-ivory); margin-bottom: 1rem; }
 .footer-brand p{ color: rgba(246,242,233,0.7); font-size: var(--fs-small); max-width: 30ch; }
-.footer-col h5{ font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
+.footer-col__title{ font-size: 0.78rem; font-weight: 700; margin-top: 1.67em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
 .footer-col ul{ display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-col a{ font-size: var(--fs-small); color: rgba(246,242,233,0.82); transition: color 0.3s var(--ease); }
 .footer-col a:hover{ color: var(--color-ivory); }
@@ -580,6 +594,26 @@ h1, h2, h3, h4{
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline: 2px solid var(--color-bluebell-deep); outline-offset: 3px; }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.hotelbluebells.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://www.hotelbluebells.com/gallery.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -660,7 +694,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 <header class="site-header" id="siteHeader">
   <div class="container">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <svg class="sprig" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
       Bluebells
     </a>
@@ -721,7 +755,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
     <div class="nav-right">
       <!-- REPLACE HREF WITH YOUR BOOKING ENGINE URL -->
-      <a href="#" class="btn btn--primary nav-cta">
+      <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary nav-cta">
         Book Now
         <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg>
       </a>
@@ -744,7 +778,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <a href="http://www.chelsea-house.co.uk/" target="_blank" rel="noopener noreferrer">Chelsea House Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
     <a href="https://acaciahotel.co.uk/" target="_blank" rel="noopener noreferrer">Acacia Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
   </div>
-  <a href="#" class="btn btn--primary">Book Now</a>
+  <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary">Book Now</a>
 </nav>
 
 <main id="main">
@@ -753,7 +787,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="hero-media">
     <!-- SLIDESHOW: add more <img class="hero-media__el" src="..."> lines directly below and the hero auto-rotates; with one image it stays static -->
     <!-- GALLERY HERO IMAGE (recommended size 1920x1000) -->
-    <img decoding="async" class="hero-media__el" src="images/opt/hero-about-us-copy.jpg" alt="A collage-style view inside Hotel Bluebells">
+    <img decoding="async" class="hero-media__el" src="images/opt/hero-about-us-copy.jpg" alt="Hotel Bluebells entrance with stone steps, iron railings and flower boxes" width="1024" height="772" fetchpriority="high">
     <div class="hero-media__overlay"></div>
   </div>
   <div class="container page-hero-content">
@@ -761,7 +795,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <h1>Gallery</h1>
     <p class="lead">A closer look at the rooms, the townhouse, and the small details that make Bluebells feel like Bluebells.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn--primary">Book Now <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg></a>
+      <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary">Book Now <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -780,59 +814,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <!-- Each gallery image: replace src + alt with your own photo. data-category controls the filter buttons above. -->
     <div class="gallery-grid reveal" id="galleryGrid">
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/opt/hero-facade.jpg" alt="Hotel Bluebells townhouse facade">
+        <img decoding="async" loading="lazy" src="images/opt/hero-facade.jpg" alt="White columns and a red front door at the entrance of Hotel Bluebells" width="1023" height="1537">
         <span class="gallery-item__caption">The Facade</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/opt/double-room-2.jpg" alt="Deluxe Double Room interior">
+        <img decoding="async" loading="lazy" src="images/opt/double-room-2.jpg" alt="Deluxe Double Room with an arched window, bedside lamps and a desk chair" width="1280" height="852">
         <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Standard Single Room interior">
+        <picture><source srcset="images/single%20_%20room%20-%20hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/single _ room - hero.png" alt="Single bed, desk and tall sash window in a green-walled Standard Single Room" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Standard Single Room</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite interior">
+        <picture><source srcset="images/quad%20room.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/quad room.png" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Family Junior Suite</span>
       </div>
       <div class="gallery-item" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/opt/cozy-hotel-room-with-city-views-1.jpg" alt="Hotel Bluebells reception area">
+        <img decoding="async" loading="lazy" src="images/opt/cozy-hotel-room-with-city-views-1.jpg" alt="Sash window in a guest room overlooking neighbouring white townhouses" width="1280" height="852">
         <span class="gallery-item__caption">Room View</span>
       </div>
       <div class="gallery-item tall" data-category="bathroom">
-        <img decoding="async" loading="lazy" src="images/opt/bathroom-1.jpg" alt="A guest bathroom at Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom-1.jpg" alt="Shower with heated towel rail and toiletries on a woven stool" width="1023" height="1537">
         <span class="gallery-item__caption"><!--Guest-->Bathroom</span>
       </div>
       <div class="gallery-item" data-category="dining">
-        <img decoding="async" loading="lazy" src="images/opt/living-room.jpg" alt="Continental breakfast room">
+        <img decoding="async" loading="lazy" src="images/opt/living-room.jpg" alt="Dining room with wooden tables, green panelling and a patterned wall mural" width="1280" height="854">
         <span class="gallery-item__caption">Lounge</span>
       </div>
       <div class="gallery-item" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Pembridge Square near the hotel">
+        <picture><source srcset="images/Hero%20image.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/Hero image.jpg" alt="Hotel entrance with sign, red door and black iron railings above stone steps" width="6240" height="4160"></picture>
         <span class="gallery-item__caption">Outdoors</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/opt/family.jpg" alt="Family Suite interior">
+        <img decoding="async" loading="lazy" src="images/opt/family.jpg" alt="Family Suite with a tufted headboard double bed and two further beds" width="1280" height="960">
         <span class="gallery-item__caption">Family Suite</span>
       </div>
       <div class="gallery-item" data-category="rooms">
-        <img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room interior">
+        <picture><source srcset="images/triple.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/triple.png" alt="Executive Triple Room with a double bed, single bed and a window view" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Executive Triple Room</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="The staircase inside Hotel Bluebells">
+        <picture><source srcset="images/hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536"></picture>
         <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item" data-category="bathroom">
-        <img decoding="async" loading="lazy" src="images/opt/bathroom.jpg" alt="An ensuite bathroom detail">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom.jpg" alt="Ensuite shower cubicle with heated towel rail, hairdryer and basin" width="1280" height="853">
         <span class="gallery-item__caption">Ensuite Detail</span>
       </div>
       <div class="gallery-item" data-category="dining">
-        <img decoding="async" loading="lazy" src="images/tea facility.png" alt="Coffee served at breakfast">
+        <picture><source srcset="images/tea%20facility.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/tea facility.png" alt="Kettle, cups and glasses on a tray inside a wooden cabinet" width="1537" height="1023"></picture>
         <span class="gallery-item__caption">Morning Coffee</span>
       </div>
       <div class="gallery-item tall" data-category="hotel">
-        <img decoding="async" loading="lazy" src="images/garden terrace.png" alt="The staircase inside Hotel Bluebells">
+        <picture><source srcset="images/garden%20terrace.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/garden terrace.png" alt="Sunlit back garden terrace with café table, chairs and potted plants" width="1536" height="1024"></picture>
         <span class="gallery-item__caption">Garden</span>
       </div>
     </div>
@@ -847,7 +881,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <svg class="sprig sprig--brass" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
           Bluebells
         </a>
@@ -855,7 +889,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Explore</h5>
+        <p class="footer-col__title">Explore</p>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="rooms.html">Rooms</a></li>
@@ -865,17 +899,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Our Hotel</h5>
+        <p class="footer-col__title">Our Hotel</p>
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="offers.html">Offers</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Book Now</a></li>
+          <li><a href="https://direct-book.com/properties/bluebellshotel">Book Now</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <p class="footer-col__title">Contact</p>
         <ul>
           <li><a href="tel:+442077276666">+44 (0)20 7727 6666</a></li>
           <li><a href="mailto:info@hotelbluebells.com">info@hotelbluebells.com</a></li>
@@ -903,7 +937,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 
@@ -931,7 +965,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1100,7 +1134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');

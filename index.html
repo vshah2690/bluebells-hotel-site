@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hotel Bluebells | Boutique Hotel in Notting Hill, London</title>
 <meta name="description" content="Hotel Bluebells — an 18th-century Victorian townhouse turned boutique hotel, moments from Portobello Road in Notting Hill, London.">
+<link rel="canonical" href="https://www.hotelbluebells.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<!-- STAGING-NOINDEX-START -->
+<meta name="robots" content="noindex, nofollow">
+<!-- STAGING-NOINDEX-END -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hotel Bluebells">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Hotel Bluebells | Boutique Hotel in Notting Hill, London">
+<meta property="og:description" content="Hotel Bluebells — an 18th-century Victorian townhouse turned boutique hotel, moments from Portobello Road in Notting Hill, London.">
+<meta property="og:url" content="https://www.hotelbluebells.com/">
+<meta property="og:image" content="https://www.hotelbluebells.com/images/hero-1920x1080/hero-home-primary-1920x1080.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +38,8 @@
 html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, figure, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 input, textarea { font: inherit; color: inherit; }
@@ -384,7 +398,7 @@ h1, h2, h3, h4{
 .room-card:hover .room-card__media img{ transform: scale(1.05); }
 .room-card__body{ display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.6rem 1.6rem; }
 .room-card__head{ display: flex; align-items: baseline; justify-content: space-between; gap: 0.9rem; margin-bottom: 0.5rem; }
-.room-card__head h4{ font-size: 1.3rem; }
+.room-card__head h3{ font-size: 1.3rem; }
 .room-card__occupancy{ display: inline-flex; align-items: center; gap: 2px; margin-left: 0.55rem; vertical-align: middle; color: var(--color-ink-soft); }
 .room-card__occupancy svg{ width: 13px; height: 13px; }
 .room-card__size{ flex-shrink: 0; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em; color: var(--color-brass); }
@@ -429,7 +443,7 @@ h1, h2, h3, h4{
 .amenity .icon-wrap{ width: 52px; height: 52px; border-radius: 50%; background: var(--color-bluebell-pale); color: var(--color-bluebell-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease); }
 .amenity:hover .icon-wrap{ background: var(--color-bluebell); color: var(--color-ivory); transform: rotate(-8deg) scale(1.06); }
 .amenity .icon-wrap svg{ width: 24px; height: 24px; }
-.amenity h4{ font-size: 1.05rem; margin-bottom: 0.4rem; }
+.amenity h3{ font-size: 1.05rem; margin-bottom: 0.4rem; }
 .amenity p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 /* 12 amenities: 1, 2, 3 or 4 columns so the last row is always full */
 @media (min-width: 560px){ .amenities-grid{ grid-template-columns: repeat(2, 1fr); } }
@@ -558,7 +572,7 @@ h1, h2, h3, h4{
 .directions-grid{ display: grid; gap: 1.6rem; margin-top: 0.5rem; }
 @media (min-width: 640px){ .directions-grid{ grid-template-columns: 1fr 1fr; } }
 .directions-card{ background: var(--color-white); border-radius: var(--radius-md); padding: 1.6rem 1.7rem; box-shadow: 0 1px 0 var(--color-line); }
-.directions-card h4{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
+.directions-card h2, .directions-card h3{ font-size: 1rem; margin-bottom: 0.6rem; color: var(--color-bluebell-deep); }
 .directions-card p{ font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 @media (min-width: 860px){ .contact-grid{ grid-template-columns: 1fr 1fr; } .form-row{ grid-template-columns: 1fr 1fr; } }
@@ -582,7 +596,7 @@ h1, h2, h3, h4{
 .footer-grid{ display: grid; grid-template-columns: 1fr; gap: 2.6rem; padding-bottom: clamp(2.5rem, 5vw, 3.5rem); border-bottom: 1px solid var(--color-line-on-dark); }
 .footer-brand .logo{ color: var(--color-ivory); margin-bottom: 1rem; }
 .footer-brand p{ color: rgba(246,242,233,0.7); font-size: var(--fs-small); max-width: 30ch; }
-.footer-col h5{ font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
+.footer-col__title{ font-size: 0.78rem; font-weight: 700; margin-top: 1.67em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brass); margin-bottom: 1.1rem; }
 .footer-col ul{ display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-col a{ font-size: var(--fs-small); color: rgba(246,242,233,0.82); transition: color 0.3s var(--ease); }
 .footer-col a:hover{ color: var(--color-ivory); }
@@ -610,6 +624,83 @@ h1, h2, h3, h4{
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline: 2px solid var(--color-bluebell-deep); outline-offset: 3px; }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "@id": "https://www.hotelbluebells.com/#hotel",
+  "name": "Hotel Bluebells",
+  "alternateName": [
+    "Blue Bells Hotel",
+    "Bluebells Hotel Notting Hill Gate"
+  ],
+  "url": "https://www.hotelbluebells.com/",
+  "description": "Hotel Bluebells — an 18th-century Victorian townhouse turned boutique hotel, moments from Portobello Road in Notting Hill, London.",
+  "image": [
+    "https://www.hotelbluebells.com/images/hero-1920x1080/hero-home-primary-1920x1080.jpg",
+    "https://www.hotelbluebells.com/images/opt/facade.jpg",
+    "https://www.hotelbluebells.com/images/opt/about-us-section2.jpg",
+    "https://www.hotelbluebells.com/images/opt/garden-terrace.jpg",
+    "https://www.hotelbluebells.com/images/opt/double-room-3.jpg"
+  ],
+  "telephone": "+44 20 7727 6666",
+  "email": "info@hotelbluebells.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Pembridge Square",
+    "addressLocality": "London",
+    "postalCode": "W2 4EH",
+    "addressCountry": "GB"
+  },
+  "checkinTime": "15:00",
+  "checkoutTime": "11:00",
+  "sameAs": [
+    "https://www.instagram.com/hotel_bluebells/"
+  ],
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free Wi-Fi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Non-smoking rooms",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free luggage storage",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Tea and coffee making facilities",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Ensuite bathroom",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Television",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Private back garden",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free toiletries",
+      "value": true
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- <a class="skip-link" href="#main">Skip to content</a> -->
@@ -714,7 +805,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 <header class="site-header" id="siteHeader">
   <div class="container">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <svg class="sprig" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
       Bluebells
     </a>
@@ -775,7 +866,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
     <div class="nav-right">
       <!-- REPLACE HREF WITH YOUR BOOKING ENGINE URL -->
-      <a href="#" class="btn btn--primary nav-cta">
+      <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary nav-cta">
         Book Now
         <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg>
       </a>
@@ -798,7 +889,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <a href="http://www.chelsea-house.co.uk/" target="_blank" rel="noopener noreferrer">Chelsea House Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
     <a href="https://acaciahotel.co.uk/" target="_blank" rel="noopener noreferrer">Acacia Hotel &#8599;<span class="visually-hidden"> (opens in a new tab)</span></a>
   </div>
-  <a href="#" class="btn btn--primary">Book Now</a>
+  <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary">Book Now</a>
 </nav>
 
 <main id="main">
@@ -813,18 +904,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <!-- <img decoding="async" class="hero-media__el" id="heroImg"
          src="images/hero-1920x1080/hero-about-us-1920x1080.png"
          alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill"> -->
-    <img decoding="async" class="hero-media__el" id="heroImg"
+    <picture><source srcset="images/hero-1920x1080/hero-entrance-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el" id="heroImg"
          src="images/hero-1920x1080/hero-entrance-1920x1080.png"
-         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
-    <img decoding="async" class="hero-media__el" id="heroImg"
+         alt="Steps and black iron railings leading up to the white entrance of Hotel Bluebells" width="1920" height="1080" fetchpriority="high"></picture>
+    <picture><source srcset="images/hero-1920x1080/hero-architecture-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-architecture-1920x1080.png"
-         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
-    <img decoding="async" class="hero-media__el" id="heroImg"
+         alt="Ornate white stucco balconies and rooftop detail on the Hotel Bluebells building" width="1920" height="1080" fetchpriority="low"></picture>
+    <picture><source srcset="images/hero-1920x1080/hero-facade-1920x1080.webp" type="image/webp"><img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-facade-1920x1080.png"
-         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
-    <img decoding="async" class="hero-media__el" id="heroImg"
+         alt="Hotel Bluebells sign above the red front door and the number 14 plaque" width="1920" height="1080" fetchpriority="low"></picture>
+    <img decoding="async" class="hero-media__el"
          src="images/hero-1920x1080/hero-home-primary-1920x1080.jpg"
-         alt="Hotel Bluebells' Victorian townhouse facade on Pembridge Square, Notting Hill">
+         alt="White Notting Hill townhouse front with iron railings and a bay window at Hotel Bluebells" width="1920" height="1080" fetchpriority="low">
     <!--
       TO USE A VIDEO INSTEAD OF A STILL IMAGE:
       Delete the <img> above and paste this in its place:
@@ -851,7 +942,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <!-- <p class="lead">An 18th-century Victorian townhouse turned boutique hotel, moments from Portobello Road — with all the character of Notting Hill and none of the fuss.</p> -->
     <div class="hero-actions">
       <!-- REPLACE HREF WITH YOUR BOOKING ENGINE URL -->
-      <a href="#" class="btn btn--primary">
+      <a href="https://direct-book.com/properties/bluebellshotel" class="btn btn--primary">
         Check Availability
         <svg viewBox="0 0 32 32"><use href="#icon-arrow"/></svg>
       </a>
@@ -887,7 +978,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="about-media reveal">
         <!-- ABOUT IMAGE (recommended size 1000x1250, portrait) -->
         <img decoding="async" loading="lazy" src="images/opt/about-us-section2.jpg"
-             alt="A staircase inside the Victorian townhouse at Hotel Bluebells">
+             alt="Lounge with leather armchairs, wicker egg chairs and a chandelier by a bay window" width="1280" height="853">
         <svg class="sprig" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
       </div>
 
@@ -934,11 +1025,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:0">
         <a href="standard-single-room.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-single-room-hero.jpg" alt="Standard Single Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-single-room-hero.jpg" alt="Standard Single Room with olive-green walls, a single bed and writing desk" width="1280" height="853">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="standard-single-room.html">Standard Single Room</a></h4>
+            <h3><a href="standard-single-room.html">Standard Single Room</a></h3>
             <span class="room-card__size">11 m&sup2;</span>
           </div>
           <p>A compact, well-appointed room built for solo stays, with everything close at hand.</p>
@@ -953,11 +1044,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:1">
         <a href="deluxe-double-room.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-double-room-3.jpg" alt="Deluxe Double Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-double-room-3.jpg" alt="Deluxe Double Room with a double bed, panelled headboard and red bed runner" width="1280" height="852">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="deluxe-double-room.html">Deluxe Double Room</a></h4>
+            <h3><a href="deluxe-double-room.html">Deluxe Double Room</a></h3>
             <span class="room-card__size">20 m&sup2;</span>
           </div>
           <p>A warm, light-filled room with a full-size double bed — ideal for couples exploring Notting Hill.</p>
@@ -972,11 +1063,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:2">
         <a href="executive-triple-room.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-triple.jpg" alt="Executive Triple Room">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-triple.jpg" alt="Executive Triple Room with a double bed, a single bed and a window view" width="1280" height="853">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="executive-triple-room.html">Executive Triple Room</a></h4>
+            <h3><a href="executive-triple-room.html">Executive Triple Room</a></h3>
             <span class="room-card__size">24 m&sup2;</span>
           </div>
           <p>Extra space for three, with a flexible bed configuration to suit your group.</p>
@@ -991,11 +1082,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:3">
         <a href="family-junior-suite.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-quad-room.jpg" alt="Family Junior Suite">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-quad-room.jpg" alt="Family Junior Suite with a double bed, sofa and sage-green walls" width="1280" height="853">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="family-junior-suite.html">Family Junior Suite</a></h4>
+            <h3><a href="family-junior-suite.html">Family Junior Suite</a></h3>
             <span class="room-card__size">22 m&sup2;</span>
           </div>
           <p>Our largest standard room, sleeping up to four — practical, comfortable, ready for a group.</p>
@@ -1009,11 +1100,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <article class="room-card reveal" style="--stagger:4">
         <a href="family-suite.html" class="room-card__media">
-          <img decoding="async" loading="lazy" src="images/opt/rooms-family-1.jpg" alt="Family Suite">
+          <img decoding="async" loading="lazy" src="images/opt/rooms-family-1.jpg" alt="Family Suite with a double bed, sofa bed and single bed by a window" width="1280" height="853">
         </a>
         <div class="room-card__body">
           <div class="room-card__head">
-            <h4><a href="family-suite.html">Family Suite</a></h4>
+            <h3><a href="family-suite.html">Family Suite</a></h3>
             <span class="room-card__size">28 m&sup2;</span>
           </div>
           <p>A generously sized room with space to spread out after a day at Hyde Park or Kensington Gardens.</p>
@@ -1053,69 +1144,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="amenities-grid reveal">
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-wifi"/></svg></div>
-        <h4>Free Wi-Fi throughout</h4>
+        <h3>Free Wi-Fi throughout</h3>
         <p>Fast, free, and it reaches every floor of the building.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-cup"/></svg></div>
-        <h4>Continental breakfast</h4>
+        <h3>Continental breakfast</h3>
         <p>Included if booked direct, served each morning downstairs.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-nosmoke"/></svg></div>
-        <h4>Non-smoking rooms</h4>
+        <h3>Non-smoking rooms</h3>
         <p>Every room in the house, kept fresh for the next guest.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-luggage"/></svg></div>
-        <h4>Free luggage storage</h4>
+        <h3>Free luggage storage</h3>
         <p>Early arrival or late flight home? Drop your bags and go explore.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-parking"/></svg></div>
-        <h4>On-street parking nearby</h4>
+        <h3>On-street parking nearby</h3>
         <p>Paid on-street parking is available right outside, for guests driving in.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-pin"/></svg></div>
-        <h4>Steps from Portobello Road</h4>
+        <h3>Steps from Portobello Road</h3>
         <p>Antiques, cafés and Saturday markets, all on your doorstep.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-teapot"/></svg></div>
-        <h4>Tea &amp; coffee maker</h4>
+        <h3>Tea &amp; coffee maker</h3>
         <p>In every room, so a proper brew is ready whenever you are.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-bath"/></svg></div>
-        <h4>En-suite bathroom</h4>
+        <h3>En-suite bathroom</h3>
         <p>Your own private bathroom in every room, hairdryer included.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-fridge"/></svg></div>
-        <h4>Mini fridge in your room</h4>
+        <h3>Mini fridge in your room</h3>
         <p>Keep water, milk and market treats cool until you want them.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-soap"/></svg></div>
-        <h4>Free toiletries</h4>
+        <h3>Free toiletries</h3>
         <p>Shampoo, body soap and more, so you can travel a little lighter.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-towel"/></svg></div>
-        <h4>Fresh linen &amp; towels</h4>
+        <h3>Fresh linen &amp; towels</h3>
         <p>Crisp bedding and soft towels, freshly laundered for every guest.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-tv"/></svg></div>
-        <h4>TV in every room</h4>
+        <h3>TV in every room</h3>
         <p>Settle in with a favourite show after a long day out in London.</p>
       </div>
       <!-- TEMP: Private Back Garden (13th amenity, full-width). Keep or delete this card + .amenity--wide CSS + #icon-garden symbol. -->
       <div class="amenity amenity--wide">
         <div class="icon-wrap"><svg viewBox="0 0 32 32"><use href="#icon-garden"/></svg></div>
         <div>
-          <h4>Private Back Garden</h4>
+          <h3>Private Back Garden</h3>
           <p>A quiet private garden with seating, just steps from your room.</p>
         </div>
       </div>
@@ -1136,19 +1227,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
     <div class="gallery-grid reveal" id="galleryGrid" style="margin-bottom:2.4rem;">
       <div class="gallery-item tall">
-        <img decoding="async" loading="lazy" src="images/opt/facade.jpg" alt="Hotel Bluebells townhouse facade">
+        <img decoding="async" loading="lazy" src="images/opt/facade.jpg" alt="Black iron balcony railings and greenery in front of the Hotel Bluebells entrance" width="1280" height="853">
         <span class="gallery-item__caption">The Facade</span>
       </div>
       <div class="gallery-item">
-        <img decoding="async" loading="lazy" src="images/opt/double-room-1.jpg" alt="Deluxe Double Room interior">
+        <img decoding="async" loading="lazy" src="images/opt/double-room-1.jpg" alt="TV, wardrobe, desk and kettle in a Deluxe Double Room" width="1280" height="852">
         <span class="gallery-item__caption">Deluxe Double Room</span>
       </div>
       <div class="gallery-item">
-        <img decoding="async" loading="lazy" src="images/hero.png" alt="Hotel Bluebells reception area">
+        <picture><source srcset="images/hero.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/hero.png" alt="Symmetrical white stucco front of Hotel Bluebells with balconies above the entrance steps" width="1024" height="1536"></picture>
         <span class="gallery-item__caption">The Hotel</span>
       </div>
       <div class="gallery-item tall">
-        <img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="A guest bathroom at Hotel Bluebells">
+        <img decoding="async" loading="lazy" src="images/opt/bathroom-3.jpg" alt="Ensuite bathroom with a round mirror, basin and glass shower screen" width="1280" height="852">
         <span class="gallery-item__caption">Guest Bathroom</span>
       </div>
     </div>
@@ -1232,7 +1323,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="cta-band reveal">
       <div class="cta-band-media">
         <!-- OFFERS BAND BACKGROUND IMAGE (recommended size 1600x700) -->
-        <img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="">
+        <picture><source srcset="images/offer-gift-voucher-1600x700.webp" type="image/webp"><img decoding="async" loading="lazy" src="images/offer-gift-voucher-1600x700.png" alt="" width="1600" height="700"></picture>
       </div>
       <div class="cta-band-inner">
         <div>
@@ -1309,7 +1400,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <svg class="sprig sprig--brass" viewBox="0 0 60 100"><use href="#icon-sprig"/></svg>
           Bluebells
         </a>
@@ -1317,7 +1408,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Explore</h5>
+        <p class="footer-col__title">Explore</p>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="rooms.html">Rooms</a></li>
@@ -1327,17 +1418,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="footer-col">
-        <h5>Our Hotel</h5>
+        <p class="footer-col__title">Our Hotel</p>
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="offers.html">Offers</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Book Now</a></li>
+          <li><a href="https://direct-book.com/properties/bluebellshotel">Book Now</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <p class="footer-col__title">Contact</p>
         <ul>
           <li><a href="tel:+442077276666">+44 (0)20 7727 6666</a></li>
           <li><a href="mailto:info@hotelbluebells.com">info@hotelbluebells.com</a></li>
@@ -1365,7 +1456,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
     <svg viewBox="0 0 32 32"><use href="#icon-close"/></svg>
   </button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 </div>
 
 
@@ -1393,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ---------------------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-media').forEach(function (media) {
-    var slides = media.querySelectorAll(':scope > .hero-media__el');
+    var slides = media.querySelectorAll('.hero-media__el');
     if (slides.length < 2) return;
     media.classList.add('is-slider');
     var slideIndex = 0;
@@ -1562,7 +1653,7 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryItems.forEach(function (item) {
       item.addEventListener('click', function () {
         var img = item.querySelector('img');
-        lightboxImg.src = img.src.replace('700x900', '1200x1500').replace('700x500', '1200x850');
+        lightboxImg.src = (img.currentSrc || img.src).replace('700x900', '1200x1500').replace('700x500', '1200x850');
         lightboxImg.alt = img.alt;
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
