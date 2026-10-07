@@ -1,0 +1,25 @@
+old_path,new_path,notes
+/index.php,/,Exact match (homepage).
+/bluebells-hotel-london-room-rates-facilities.php,/rooms.html,Rooms & rates page. Also matches the ?roomId=N variants (query string is dropped).
+/bluebells-hotel-london-room-rates-facilities.php?roomId=N,/rooms.html,"UNCERTAIN: old roomId values are not known, so all go to /rooms.html. If you know the IDs, map each to its room page (commented example in .htaccess)."
+/bluebells-hotel-notting-hill-gate-contact.php,/contact.html,Exact match.
+/bluebells-hotel-nottinghill-gate-london-attraction.php,/neighbourhood.html,Attractions -> 'Things to do in Notting Hill' page.
+/bluebells-hotel-nottinghill-london-events.php,/neighbourhood.html,Events are covered on the neighbourhood page; no separate events page exists.
+/bluebells-hotel-notting-hill-gate-summer-activities.php,/neighbourhood.html,Summer activities are covered on the neighbourhood page.
+/bluebells-hotel-hyde-park-photo-gallery.php,/gallery.html,Exact match.
+/bluebells-hotel-hyde-park-group-reservation.php,/contact.html,Group bookings: the site says to email info@hotelbluebells.com (homepage + contact page).
+/bluebells-hotel-nottinghill-gate-london-reservation.php,/rooms.html,UNCERTAIN: reservation page; best fit until the SiteMinder booking engine is live. Consider pointing to the booking engine URL instead.
+/bluebells-hotel-nottinghill-london-terms-condition.php,/privacy-policy.html,UNCERTAIN: no Terms & Conditions page exists yet (footer link is a placeholder). Closest legal page used. Repoint if you publish a terms page.
+/bluebells-hotel-notting-hill-gate-guest-book.php,/,UNCERTAIN: no guest-book page exists. Homepage used (it carries guest reviews). Alternative: let it return 410 Gone.
+/bluebells-hotel-job-vacancy-london.php,/contact.html,UNCERTAIN: no careers page exists. Contact page used. Alternative: homepage or 410 Gone.
+/about.html,/about.html,Same URL exists on the new site: NO redirect rule needed (content is new).
+/contact.html,/contact.html,Same URL exists on the new site: NO redirect rule needed.
+/gallery.html,/gallery.html,Same URL exists on the new site: NO redirect rule needed.
+/attraction.html,/neighbourhood.html,Older .html page -> neighbourhood page.
+/family_room.html,/family-suite.html,UNCERTAIN: old 'Family' room was renamed Family Suite; Family Junior Suite is the other candidate.
+/double_room.html,/deluxe-double-room.html,Old 'Double' room was renamed Deluxe Double Room.
+/guest-book.html,/,UNCERTAIN: no guest-book page exists. Homepage used.
+/career.html,/contact.html,UNCERTAIN: no careers page exists. Contact page used.
+/index.html,/,Duplicate of the homepage: 301 to one canonical URL.
+http://hotelbluebells.com/* and http://www.hotelbluebells.com/*,https://www.hotelbluebells.com/*,"Force HTTPS (single hop, combined with non-www -> www)."
+https://hotelbluebells.com/*,https://www.hotelbluebells.com/*,non-www -> www.

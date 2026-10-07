@@ -1,0 +1,68 @@
+# =============================================================================
+# Hotel Bluebells - launch redirects (Apache / cPanel)
+# Source of truth for the mapping: redirects.csv (same folder)
+#
+# HOW TO USE (launch day, after scripts/go-live.py has been run):
+#   1. Upload the new site to public_html/.
+#   2. Copy THIS file to public_html/.htaccess. If one already exists (cPanel
+#      may have added PHP-handler lines), keep those lines and paste the
+#      RewriteEngine block below them.
+#   3. Test: curl -sI http://hotelbluebells.com/index.php   -> one 301 to https://www.hotelbluebells.com/
+#
+# Design notes
+#   - Every rule redirects straight to its FINAL https://www URL, so old URLs
+#     take one hop, never a chain.
+#   - QSD drops the old query string (?roomId=... etc.); needs Apache 2.4+.
+#   - If the site sits behind Cloudflare or another proxy, replace
+#       RewriteCond %{HTTPS} off
+#     with
+#       RewriteCond %{HTTP:X-Forwarded-Proto} =http
+#   - Do NOT add these rules to the repo root while the review copy is on GitHub
+#     Pages; GitHub Pages ignores .htaccess anyway, so this folder is inert there.
+# =============================================================================
+
+RewriteEngine On
+
+# ---- 1. Old PHP URLs (one 301 each, straight to the new page) ---------------
+
+RewriteRule ^index\.php$ https://www.hotelbluebells.com/ [NC,R=301,L,QSD]
+
+# Rooms & rates (also catches ?roomId=N; the query string is dropped)
+# TODO (optional): once you know which roomId is which, add per-room rules ABOVE
+# the generic rule, e.g.
+#   RewriteCond %{QUERY_STRING} (^|&)roomId=1(&|$)
+#   RewriteRule ^bluebells-hotel-london-room-rates-facilities\.php$ https://www.hotelbluebells.com/standard-single-room.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-london-room-rates-facilities\.php$ https://www.hotelbluebells.com/rooms.html [NC,R=301,L,QSD]
+
+RewriteRule ^bluebells-hotel-notting-hill-gate-contact\.php$ https://www.hotelbluebells.com/contact.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-nottinghill-gate-london-attraction\.php$ https://www.hotelbluebells.com/neighbourhood.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-nottinghill-london-events\.php$ https://www.hotelbluebells.com/neighbourhood.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-notting-hill-gate-summer-activities\.php$ https://www.hotelbluebells.com/neighbourhood.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-hyde-park-photo-gallery\.php$ https://www.hotelbluebells.com/gallery.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-hyde-park-group-reservation\.php$ https://www.hotelbluebells.com/contact.html [NC,R=301,L,QSD]
+
+# UNCERTAIN mappings - review these in redirects.csv before launch
+RewriteRule ^bluebells-hotel-nottinghill-gate-london-reservation\.php$ https://www.hotelbluebells.com/rooms.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-nottinghill-london-terms-condition\.php$ https://www.hotelbluebells.com/privacy-policy.html [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-notting-hill-gate-guest-book\.php$ https://www.hotelbluebells.com/ [NC,R=301,L,QSD]
+RewriteRule ^bluebells-hotel-job-vacancy-london\.php$ https://www.hotelbluebells.com/contact.html [NC,R=301,L,QSD]
+
+# ---- 2. Older .html pages ----------------------------------------------------
+# about.html, contact.html and gallery.html exist on the new site under the same
+# name, so they need no rule.
+RewriteRule ^attraction\.html$ https://www.hotelbluebells.com/neighbourhood.html [NC,R=301,L]
+RewriteRule ^family_room\.html$ https://www.hotelbluebells.com/family-suite.html [NC,R=301,L]
+RewriteRule ^double_room\.html$ https://www.hotelbluebells.com/deluxe-double-room.html [NC,R=301,L]
+RewriteRule ^guest-book\.html$ https://www.hotelbluebells.com/ [NC,R=301,L]
+RewriteRule ^career\.html$ https://www.hotelbluebells.com/contact.html [NC,R=301,L]
+
+# ---- 3. One URL for the homepage ---------------------------------------------
+# THE_REQUEST only matches what the visitor actually asked for, so Apache's own
+# internal DirectoryIndex lookup of index.html does not cause a redirect loop.
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+RewriteRule ^index\.html$ https://www.hotelbluebells.com/ [R=301,L,QSD]
+
+# ---- 4. Everything else: force HTTPS + www in a single hop -------------------
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.hotelbluebells\.com$ [NC]
+RewriteRule ^(.*)$ https://www.hotelbluebells.com/$1 [R=301,L]
